@@ -9,5 +9,8 @@ outputs/*
 !outputs/PMC5109614_experiment.json
 !outputs/PMC5109614_material_properties.json
 !outputs/PMC5109614_material_properties.md
+!outputs/PMC8953245_experiment.json
+!outputs/PMC8953245_material_properties.json
+!outputs/PMC8953245_material_properties.md
 samples/*
 !samples/.gitkeep

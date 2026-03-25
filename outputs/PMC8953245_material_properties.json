@@ -1,0 +1,94 @@
+{
+  "source_file": "/home/ubuntu/materials-structuring/samples/PMC8953245.html",
+  "article_title": "Mechanical Characterization and In Vitro Assay of Biocompatible Titanium Alloys",
+  "records": [
+    {
+      "material_name_or_composition": "Ti20Mo7Zr5Ta",
+      "property": "인장강도(UTS)",
+      "value": "1365.27",
+      "unit": "MPa",
+      "experimental_condition": "tensile test at ambient temperature, gauge length 40 mm",
+      "source": "Table 1"
+    },
+    {
+      "material_name_or_composition": "Ti20Mo7Zr5Ta",
+      "property": "항복강도(0.2% offset)",
+      "value": "1186.37",
+      "unit": "MPa",
+      "experimental_condition": "tensile test at ambient temperature, gauge length 40 mm",
+      "source": "Table 1"
+    },
+    {
+      "material_name_or_composition": "Ti20Mo7Zr5Ta",
+      "property": "Young's modulus",
+      "value": "46.51",
+      "unit": "GPa",
+      "experimental_condition": "tensile test, automatic Young's modulus",
+      "source": "Table 1"
+    },
+    {
+      "material_name_or_composition": "Ti20Mo7Zr10Ta",
+      "property": "인장강도(UTS)",
+      "value": "1051.74",
+      "unit": "MPa",
+      "experimental_condition": "tensile test at ambient temperature, gauge length 40 mm",
+      "source": "Table 1"
+    },
+    {
+      "material_name_or_composition": "Ti20Mo7Zr10Ta",
+      "property": "항복강도(0.2% offset)",
+      "value": "969.90",
+      "unit": "MPa",
+      "experimental_condition": "tensile test at ambient temperature, gauge length 40 mm",
+      "source": "Table 1"
+    },
+    {
+      "material_name_or_composition": "Ti20Mo7Zr10Ta",
+      "property": "Young's modulus",
+      "value": "40.12",
+      "unit": "GPa",
+      "experimental_condition": "tensile test, automatic Young's modulus",
+      "source": "Table 1"
+    },
+    {
+      "material_name_or_composition": "Ti20Mo7Zr15Ta",
+      "property": "인장강도(UTS)",
+      "value": "712.29",
+      "unit": "MPa",
+      "experimental_condition": "tensile test at ambient temperature, gauge length 40 mm",
+      "source": "Table 1"
+    },
+    {
+      "material_name_or_composition": "Ti20Mo7Zr15Ta",
+      "property": "항복강도(0.2% offset)",
+      "value": "636.10",
+      "unit": "MPa",
+      "experimental_condition": "tensile test at ambient temperature, gauge length 40 mm",
+      "source": "Table 1"
+    },
+    {
+      "material_name_or_composition": "Ti20Mo7Zr15Ta",
+      "property": "Young's modulus",
+      "value": "36.39",
+      "unit": "GPa",
+      "experimental_condition": "tensile test, automatic Young's modulus",
+      "source": "Table 1"
+    },
+    {
+      "material_name_or_composition": "Ti-Mo-Zr-Ta alloys (average)",
+      "property": "평균 인장강도",
+      "value": "1043.09",
+      "unit": "MPa",
+      "experimental_condition": "average over investigated alloys",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-Mo-Zr-Ta alloys",
+      "property": "Young's modulus range",
+      "value": "36.39–46.50",
+      "unit": "GPa",
+      "experimental_condition": "tensile-test derived modulus across alloys",
+      "source": "본문"
+    }
+  ]
+}

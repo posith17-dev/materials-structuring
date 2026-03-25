@@ -55,6 +55,23 @@ python3 /home/ubuntu/materials-structuring/scripts/material_property_experiment.
 - PDF가 막히는 소스는 HTML 본문으로도 같은 스크립트를 돌릴 수 있습니다.
 - 지금은 LLM 호출까지 자동화하지 않고, 추출용 JSON 스텁을 만드는 단계입니다.
 
+LLM 입력 번들 생성:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/build_llm_extraction_input.py \
+  --experiment /home/ubuntu/materials-structuring/outputs/material_property_experiment.json \
+  --output /home/ubuntu/materials-structuring/outputs/material_property_prompt_bundle.json
+```
+
+LLM 결과 병합:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/merge_llm_extraction_output.py \
+  --experiment /home/ubuntu/materials-structuring/outputs/material_property_experiment.json \
+  --llm-output /home/ubuntu/materials-structuring/outputs/llm_records.json \
+  --output /home/ubuntu/materials-structuring/outputs/material_property_experiment_merged.json
+```
+
 ## 이후 확장 후보
 
 - 특허에서 조성 추출
