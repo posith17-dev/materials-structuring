@@ -1,0 +1,87 @@
+{
+  "source_file": "/home/ubuntu/materials-structuring/samples/ti6al4v_coa_sample.html",
+  "document_type": "certificate_of_analysis",
+  "title": "Certificate of Analysis / Mill Test Report",
+  "records": [
+    {
+      "material_name_or_composition": "Ti-6Al-4V ELI Bar",
+      "property": "Al 함량",
+      "value": "6.18",
+      "unit": "wt.%",
+      "experimental_condition": "chemistry, ASTM F136 COA",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V ELI Bar",
+      "property": "V 함량",
+      "value": "4.05",
+      "unit": "wt.%",
+      "experimental_condition": "chemistry, ASTM F136 COA",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V ELI Bar",
+      "property": "Fe 함량",
+      "value": "0.19",
+      "unit": "wt.%",
+      "experimental_condition": "chemistry, ASTM F136 COA",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V ELI Bar",
+      "property": "O 함량",
+      "value": "0.13",
+      "unit": "wt.%",
+      "experimental_condition": "chemistry, ASTM F136 COA",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V ELI Bar",
+      "property": "인장강도(UTS)",
+      "value": "965",
+      "unit": "MPa",
+      "experimental_condition": "solution treated and aged, room temperature",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V ELI Bar",
+      "property": "항복강도(0.2%)",
+      "value": "895",
+      "unit": "MPa",
+      "experimental_condition": "solution treated and aged, room temperature",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V ELI Bar",
+      "property": "연신율",
+      "value": "16",
+      "unit": "%",
+      "experimental_condition": "solution treated and aged, room temperature",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V ELI Bar",
+      "property": "단면수축률",
+      "value": "38",
+      "unit": "%",
+      "experimental_condition": "solution treated and aged, room temperature",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V ELI Bar",
+      "property": "경도",
+      "value": "34",
+      "unit": "HRC",
+      "experimental_condition": "solution treated and aged",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V ELI Bar",
+      "property": "Young's Modulus",
+      "value": "114",
+      "unit": "GPa",
+      "experimental_condition": "room temperature",
+      "source": "본문"
+    }
+  ]
+}

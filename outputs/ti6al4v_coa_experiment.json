@@ -1,0 +1,12 @@
+{
+  "source_file": "/home/ubuntu/materials-structuring/samples/ti6al4v_coa_sample.html",
+  "prompt_file": "/home/ubuntu/materials-structuring/prompts/material_property_extraction_prompt.md",
+  "status": "ready_for_llm_extraction",
+  "records": [],
+  "text_preview": "Certificate of Analysis / Mill Test Report \n Material: Ti-6Al-4V ELI Bar \n\n Specification: ASTM F136 \n\n Heat No: HN-240315 \n\n Lot No: LOT-ELI-001 \n\n Chemistry (wt.%): Al 6.18, V 4.05, Fe 0.19, O 0.13, C 0.02, N 0.01, H 0.003, Ti balance. \n\n Diameter: 12.7 mm \n\n Tensile Strength: 965 MPa \n\n Yield Strength (0.2%): 895 MPa \n\n Elongation: 16 % \n\n Reduction of Area: 38 % \n\n Hardness: 34 HRC \n\n Young's Modulus: 114 GPa \n\n Condition: solution treated and aged \n\n Test Temperature: room temperature",
+  "notes": [
+    "Run an LLM extraction using the prompt file and the extracted text.",
+    "Keep only explicit material-property records.",
+    "Save validated records back into this JSON structure."
+  ]
+}

@@ -104,6 +104,15 @@ python3 /home/ubuntu/materials-structuring/scripts/run_openai_material_extractio
 - 현재 샘플:
   - [WO2013162658A2 특허 발췌 샘플](/home/ubuntu/materials-structuring/samples/WO2013162658A2_patent_excerpt.html)
   - [WO2013162658A2 구조화 결과](/home/ubuntu/materials-structuring/outputs/WO2013162658A2_material_properties.md)
+- 특허 전용 프롬프트:
+  - [patent_composition_extraction_prompt.md](/home/ubuntu/materials-structuring/prompts/patent_composition_extraction_prompt.md)
+
+## COA/성적서 실험 메모
+
+- 시험성적서/COA도 같은 구조로 처리할 수 있습니다.
+- 현재 샘플:
+  - [ti6al4v_coa_sample.html](/home/ubuntu/materials-structuring/samples/ti6al4v_coa_sample.html)
+  - [ti6al4v_coa_material_properties.md](/home/ubuntu/materials-structuring/outputs/ti6al4v_coa_material_properties.md)
 
 ## 운영 원칙
 

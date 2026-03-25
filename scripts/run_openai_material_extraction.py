@@ -137,6 +137,7 @@ def main() -> int:
     parser.add_argument("--llm-output", required=True, help="Path to write raw LLM JSON")
     parser.add_argument("--merged-output", required=True, help="Path to write merged output JSON")
     parser.add_argument("--model", default="", help="Optional override model name")
+    parser.add_argument("--prompt-override", default="", help="Optional prompt file path")
     parser.add_argument(
         "--max-chars",
         type=int,
@@ -147,7 +148,7 @@ def main() -> int:
 
     experiment_path = Path(args.experiment)
     experiment = json.loads(experiment_path.read_text(encoding="utf-8"))
-    prompt_file = Path(experiment["prompt_file"])
+    prompt_file = Path(args.prompt_override.strip() or experiment["prompt_file"])
     source_file = Path(experiment["source_file"])
 
     extracted_text = extract_text(source_file)

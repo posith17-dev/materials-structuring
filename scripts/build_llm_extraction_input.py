@@ -10,17 +10,19 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--experiment", required=True, help="Path to experiment JSON stub")
     parser.add_argument("--output", required=True, help="Path to write prompt bundle JSON")
+    parser.add_argument("--prompt-override", default="", help="Optional prompt file path")
     args = parser.parse_args()
 
     experiment_path = Path(args.experiment)
     output_path = Path(args.output)
 
     payload = json.loads(experiment_path.read_text(encoding="utf-8"))
-    prompt_text = Path(payload["prompt_file"]).read_text(encoding="utf-8")
+    prompt_path = Path(args.prompt_override.strip() or payload["prompt_file"])
+    prompt_text = prompt_path.read_text(encoding="utf-8")
 
     bundle = {
         "source_file": payload.get("source_file", ""),
-        "prompt_file": payload.get("prompt_file", ""),
+        "prompt_file": str(prompt_path),
         "instructions": prompt_text,
         "text": payload.get("text_preview", ""),
         "expected_schema": {
