@@ -14,5 +14,9 @@ outputs/*
 !outputs/PMC8953245_material_properties.md
 !outputs/PMC8953245_llm_records_example.json
 !outputs/PMC8953245_merged.json
+!outputs/WO2013162658A2_experiment.json
+!outputs/WO2013162658A2_material_properties.json
+!outputs/WO2013162658A2_material_properties.md
 samples/*
 !samples/.gitkeep
+!samples/WO2013162658A2_patent_excerpt.html

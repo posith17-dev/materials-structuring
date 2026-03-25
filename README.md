@@ -98,6 +98,13 @@ python3 /home/ubuntu/materials-structuring/scripts/run_openai_material_extractio
 - 시험성적서/COA/사양서 구조화
 - 연구실 시뮬레이션 결과 정규화
 
+## 특허 실험 메모
+
+- 논문뿐 아니라 공개 특허 본문도 같은 흐름으로 다룰 수 있습니다.
+- 현재 샘플:
+  - [WO2013162658A2 특허 발췌 샘플](/home/ubuntu/materials-structuring/samples/WO2013162658A2_patent_excerpt.html)
+  - [WO2013162658A2 구조화 결과](/home/ubuntu/materials-structuring/outputs/WO2013162658A2_material_properties.md)
+
 ## 운영 원칙
 
 - 화려한 장기 계획보다 작은 추출 실험을 먼저 한다

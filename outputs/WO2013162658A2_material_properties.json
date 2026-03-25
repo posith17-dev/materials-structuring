@@ -1,0 +1,88 @@
+{
+  "source_file": "/home/ubuntu/materials-structuring/samples/WO2013162658A2_patent_excerpt.html",
+  "document_type": "patent",
+  "patent_number": "WO2013162658A2",
+  "title": "Oxygen-enriched Ti-6Al-4V alloy and process for manufacture",
+  "records": [
+    {
+      "material_name_or_composition": "Oxygen-enriched Ti-6Al-4V alloy",
+      "property": "Al 함량",
+      "value": "5.5–6.75",
+      "unit": "wt.%",
+      "experimental_condition": "patent alloy composition range",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Oxygen-enriched Ti-6Al-4V alloy",
+      "property": "V 함량",
+      "value": "3.5–4.5",
+      "unit": "wt.%",
+      "experimental_condition": "patent alloy composition range",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Oxygen-enriched Ti-6Al-4V alloy",
+      "property": "Fe 함량",
+      "value": "up to 0.40",
+      "unit": "wt.%",
+      "experimental_condition": "patent alloy composition range",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Oxygen-enriched Ti-6Al-4V alloy",
+      "property": "O 함량",
+      "value": "0.21–0.30",
+      "unit": "wt.%",
+      "experimental_condition": "oxygen-enriched alloy composition range",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Oxygen-enriched Ti-6Al-4V alloy",
+      "property": "최소 인장강도(UTS)",
+      "value": "at least 130000",
+      "unit": "psi",
+      "experimental_condition": "patent minimum property target",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Oxygen-enriched Ti-6Al-4V alloy",
+      "property": "최소 항복강도",
+      "value": "at least 120000",
+      "unit": "psi",
+      "experimental_condition": "patent minimum property target",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Blend 4 oxygen-enriched PM Ti-6Al-4V",
+      "property": "인장강도(UTS)",
+      "value": "140.0",
+      "unit": "ksi",
+      "experimental_condition": "blend property data",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Blend 4 oxygen-enriched PM Ti-6Al-4V",
+      "property": "항복강도",
+      "value": "123.0",
+      "unit": "ksi",
+      "experimental_condition": "blend property data",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Blend 5 oxygen-enriched PM Ti-6Al-4V",
+      "property": "인장강도(UTS)",
+      "value": "139.7",
+      "unit": "ksi",
+      "experimental_condition": "blend property data",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Blend 5 oxygen-enriched PM Ti-6Al-4V",
+      "property": "항복강도",
+      "value": "122.8",
+      "unit": "ksi",
+      "experimental_condition": "blend property data",
+      "source": "본문"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "source_file": "/home/ubuntu/materials-structuring/samples/WO2013162658A2_patent_excerpt.html",
+  "prompt_file": "/home/ubuntu/materials-structuring/prompts/material_property_extraction_prompt.md",
+  "status": "ready_for_llm_extraction",
+  "records": [],
+  "text_preview": "WO2013162658A2 - Oxygen-enriched Ti-6Al-4V alloy and process for manufacture \n Source: Google Patents public English page excerpt. \n\n The present disclosure generally describes a modified Ti-6Al-4V alloy,\n a powder metal manufacturing process, and products made thereof. \n\n A titanium alloy can include 5.5 to 6.75 weight percent of Aluminum,\n 3.5 to 4.5 weight percent of Vanadium, up to 0.40 weight percent of Iron,\n and 0.21 to 0.30 weight percent of Oxygen. \n\n The alloy can have at least one of a minimum ultimate tensile strength of\n at least about 130,000 psi, a minimum tensile yield strength of at least\n about 120,000 psi, a minimum ductility of at least about 10% elongation,\n or about 20% minimum reduction in area. \n\n An oxygen-enriched Ti-6Al-4V alloy having near-net preform shapes can be\n produced by pressing and sintering to approximately 98% of theoretical\n density, the balance being voids absent any solid material. \n\n A shaped compact may have a density of approximately 85% of theoretical\n density. \n\n A shaped component with a density of approximately 95% of theoretical\n density can be produced. \n\n The sintered component may then be further processed by hot isostatic\n pressing (HIP), resulting in essentially 100% of theoretical density. \n\n Oxygen levels of approximately 0.21% to 0.30% may be desirable in the\n oxygen-enriched alloy as they may strengthen Ti-6Al-4V without\n compromising ductility. \n\n The grain size of the wrought Ti-6Al-4V is about 4.7 microns. In contrast,\n the average grain size for PM Ti-6Al-4V sintered is about 9.4 microns and\n the average grain size for PM Ti-6Al-4V sintered+HIP material is about\n 11.2 microns. \n\n Blend 4: oxygen 0.285, ultimate tensile strength 140.0 ksi, tensile yield\n strength 123.0 ksi, elongation 14.7%, reduction in area 39.9%, iron 0.160%. \n\n Blend 5: oxygen 0.250, ultimate tensile strength 139.7 ksi, tensile yield\n strength 122.8 ksi, elongation 14.7%, reduction in area 34.0%, iron 0.160%.",
+  "notes": [
+    "Run an LLM extraction using the prompt file and the extracted text.",
+    "Keep only explicit material-property records.",
+    "Save validated records back into this JSON structure."
+  ]
+}
