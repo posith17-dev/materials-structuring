@@ -1,0 +1,34 @@
+{
+  "records": [
+    {
+      "material_name": "Ti20Mo7Zr5Ta",
+      "composition": "Ti-20Mo-7Zr-5Ta (wt%)",
+      "property_name": "Tensile Stress at Tensile Strength",
+      "property_value": "1365.27",
+      "property_unit": "MPa",
+      "test_condition": "ambient-temperature tensile test, gauge length 40 mm",
+      "source_page": "Table 1",
+      "source_excerpt": "Tensile Stress at Tensile Strength (MPa): 1365.27"
+    },
+    {
+      "material_name": "Ti20Mo7Zr5Ta",
+      "composition": "Ti-20Mo-7Zr-5Ta (wt%)",
+      "property_name": "Tensile Stress at Yield (Offset 0.2%)",
+      "property_value": "1186.37",
+      "property_unit": "MPa",
+      "test_condition": "ambient-temperature tensile test, gauge length 40 mm",
+      "source_page": "Table 1",
+      "source_excerpt": "Tensile Stress at Yield (Offset 0.2%) (MPa): 1186.37"
+    },
+    {
+      "material_name": "Ti20Mo7Zr5Ta",
+      "composition": "Ti-20Mo-7Zr-5Ta (wt%)",
+      "property_name": "Modulus (Automatic Young’s)",
+      "property_value": "46,508.25",
+      "property_unit": "MPa",
+      "test_condition": "ambient-temperature tensile test",
+      "source_page": "Table 1",
+      "source_excerpt": "Modulus (Automatic Young’s) (MPa): 46,508.25"
+    }
+  ]
+}

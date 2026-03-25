@@ -12,5 +12,7 @@ outputs/*
 !outputs/PMC8953245_experiment.json
 !outputs/PMC8953245_material_properties.json
 !outputs/PMC8953245_material_properties.md
+!outputs/PMC8953245_llm_records_example.json
+!outputs/PMC8953245_merged.json
 samples/*
 !samples/.gitkeep

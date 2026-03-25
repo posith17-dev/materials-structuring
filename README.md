@@ -72,6 +72,13 @@ python3 /home/ubuntu/materials-structuring/scripts/merge_llm_extraction_output.p
   --output /home/ubuntu/materials-structuring/outputs/material_property_experiment_merged.json
 ```
 
+LLM 결과 검증:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/validate_llm_extraction_output.py \
+  --input /home/ubuntu/materials-structuring/outputs/llm_records.json
+```
+
 ## 이후 확장 후보
 
 - 특허에서 조성 추출
