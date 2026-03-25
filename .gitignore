@@ -1,6 +1,7 @@
 __pycache__/
 *.pyc
 .DS_Store
+storage/*.duckdb
 outputs/*
 !outputs/.gitkeep
 !outputs/material_property_experiment.json

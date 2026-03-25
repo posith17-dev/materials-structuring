@@ -159,3 +159,22 @@ python3 /home/ubuntu/materials-structuring/scripts/normalize_material_records.py
   --output /home/ubuntu/materials-structuring/outputs/normalized_documents.json \
   --jsonl-output /home/ubuntu/materials-structuring/outputs/normalized_records.jsonl
 ```
+
+## DuckDB 적재/조회
+
+적재:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/load_normalized_to_duckdb.py \
+  --input /home/ubuntu/materials-structuring/outputs/normalized_documents.json \
+  --db /home/ubuntu/materials-structuring/storage/materials.duckdb
+```
+
+조회:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/query_material_records.py \
+  --db /home/ubuntu/materials-structuring/storage/materials.duckdb \
+  --material Ti-6Al-4V \
+  --property 인장강도
+```
