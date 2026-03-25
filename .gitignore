@@ -17,10 +17,14 @@ outputs/*
 !outputs/WO2013162658A2_experiment.json
 !outputs/WO2013162658A2_material_properties.json
 !outputs/WO2013162658A2_material_properties.md
+!outputs/US9956629B2_experiment.json
+!outputs/US9956629B2_material_properties.json
+!outputs/US9956629B2_material_properties.md
 !outputs/ti6al4v_coa_experiment.json
 !outputs/ti6al4v_coa_material_properties.json
 !outputs/ti6al4v_coa_material_properties.md
 samples/*
 !samples/.gitkeep
 !samples/WO2013162658A2_patent_excerpt.html
+!samples/US9956629B2_patent_body_sample.html
 !samples/ti6al4v_coa_sample.html

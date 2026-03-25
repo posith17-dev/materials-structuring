@@ -123,6 +123,8 @@ python3 /home/ubuntu/materials-structuring/scripts/run_openai_material_extractio
 - 현재 샘플:
   - [WO2013162658A2 특허 발췌 샘플](/home/ubuntu/materials-structuring/samples/WO2013162658A2_patent_excerpt.html)
   - [WO2013162658A2 구조화 결과](/home/ubuntu/materials-structuring/outputs/WO2013162658A2_material_properties.md)
+  - [US9956629B2 특허 본문 샘플](/home/ubuntu/materials-structuring/samples/US9956629B2_patent_body_sample.html)
+  - [US9956629B2 구조화 결과](/home/ubuntu/materials-structuring/outputs/US9956629B2_material_properties.md)
 - 특허 전용 프롬프트:
   - [patent_composition_extraction_prompt.md](/home/ubuntu/materials-structuring/prompts/patent_composition_extraction_prompt.md)
 

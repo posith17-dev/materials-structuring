@@ -1,0 +1,96 @@
+{
+  "source_file": "/home/ubuntu/materials-structuring/samples/US9956629B2_patent_body_sample.html",
+  "document_type": "patent",
+  "patent_number": "US9956629B2",
+  "title": "Titanium alloy for fastener applications",
+  "records": [
+    {
+      "material_name_or_composition": "Titanium alloy fastener stock",
+      "property": "Al 함량",
+      "value": "5.50–6.75",
+      "unit": "wt.%",
+      "experimental_condition": "fastener alloy composition",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Titanium alloy fastener stock",
+      "property": "V 함량",
+      "value": "3.50–4.50",
+      "unit": "wt.%",
+      "experimental_condition": "fastener alloy composition",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Titanium alloy fastener stock",
+      "property": "O 함량",
+      "value": "0.25–0.50",
+      "unit": "wt.%",
+      "experimental_condition": "fastener alloy composition",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Titanium alloy fastener stock",
+      "property": "Fe 함량",
+      "value": "0.40–0.80",
+      "unit": "wt.%",
+      "experimental_condition": "fastener alloy composition",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Fastener (<0.625 in diameter)",
+      "property": "최소 인장강도(UTS)",
+      "value": "at least 160",
+      "unit": "ksi",
+      "experimental_condition": "diameter less than 0.625 inches",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Fastener (<0.625 in diameter)",
+      "property": "최소 전단강도",
+      "value": "at least 95",
+      "unit": "ksi",
+      "experimental_condition": "diameter less than 0.625 inches",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Fastener (>1 in diameter)",
+      "property": "최소 인장강도(UTS)",
+      "value": "at least 150",
+      "unit": "ksi",
+      "experimental_condition": "diameter more than 1 inch",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Fastener (>1 in diameter)",
+      "property": "최소 전단강도",
+      "value": "at least 90",
+      "unit": "ksi",
+      "experimental_condition": "diameter more than 1 inch",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Annealed titanium alloy",
+      "property": "어닐링 온도",
+      "value": "1200–1400",
+      "unit": "degrees Fahrenheit",
+      "experimental_condition": "depending on implementation",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Titanium alloy feedstock",
+      "property": "스크랩 재료 비율",
+      "value": "at least 50",
+      "unit": "%",
+      "experimental_condition": "manufactured using titanium scrap material",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Titanium alloy feedstock",
+      "property": "스크랩 재료 비율",
+      "value": "at least 70",
+      "unit": "%",
+      "experimental_condition": "some cases, higher scrap content",
+      "source": "본문"
+    }
+  ]
+}
