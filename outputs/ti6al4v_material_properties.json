@@ -1,0 +1,107 @@
+{
+  "source_file": "/home/ubuntu/materials-structuring/samples/ti6al4v_superconducting_cavity.pdf",
+  "paper_title": "High-Kinetic Inductance Additive Manufactured Superconducting Microwave Cavity",
+  "material_records": [
+    {
+      "material_name_or_composition": "Ti-6Al-4V",
+      "property": "조성(Ti)",
+      "value": "90",
+      "unit": "wt%",
+      "test_condition": "EDS, acid polish 후 표면 조성 분석",
+      "source": "Fig. 1C"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V",
+      "property": "조성(Al)",
+      "value": "6",
+      "unit": "wt%",
+      "test_condition": "EDS, acid polish 후 표면 조성 분석",
+      "source": "Fig. 1C"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V",
+      "property": "조성(V)",
+      "value": "4",
+      "unit": "wt%",
+      "test_condition": "EDS, acid polish 후 표면 조성 분석",
+      "source": "Fig. 1C"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V",
+      "property": "조성(Fe 불순물)",
+      "value": "<0.5",
+      "unit": "wt%",
+      "test_condition": "EDS, acid polish 후 표면 조성 분석",
+      "source": "Fig. 1C"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (90% Ti, 6% Al, 4% V by weight)",
+      "property": "초전도 전이온도",
+      "value": "4.5",
+      "unit": "K",
+      "test_condition": "4-point DC resistance, 90% drop value, Quantum Design PPMS",
+      "source": "Fig. 2, 본문 Page 2"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V",
+      "property": "낮은 초전도 전이온도",
+      "value": "0.95",
+      "unit": "K",
+      "test_condition": "heat capacity 측정, equilibrium temperature 기준",
+      "source": "Fig. 2, 본문 Page 2"
+    },
+    {
+      "material_name_or_composition": "AM Ti-6Al-4V conical resonator",
+      "property": "공진 주파수",
+      "value": "7.50",
+      "unit": "GHz",
+      "test_condition": "20 mK에서 측정",
+      "source": "본문 Page 3-4"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V conical resonator",
+      "property": "kinetic inductance fraction, αKI",
+      "value": "4×10^-3 ± 2×10^-3",
+      "unit": "",
+      "test_condition": "fractional frequency shift vs temperature를 two-fluid model로 fit",
+      "source": "본문 Page 4, Fig. 4"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V conical resonator",
+      "property": "초전도 전이온도(Tc, fit)",
+      "value": "0.95 ± 0.1",
+      "unit": "K",
+      "test_condition": "fractional frequency shift fit",
+      "source": "본문 Page 4, Fig. 4"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V",
+      "property": "London penetration depth, λ0",
+      "value": "8 ± 3",
+      "unit": "µm",
+      "test_condition": "magnetic participation ratio 528 m^-1 사용, microwave surface impedance 기반 추출",
+      "source": "본문 Page 4, Fig. 4"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V resonator",
+      "property": "내부 품질계수, Qi",
+      "value": "≈ 3×10^4",
+      "unit": "",
+      "test_condition": "quantum regime",
+      "source": "본문 Page 4"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V conical geometry",
+      "property": "magnetic participation ratio",
+      "value": "528",
+      "unit": "m^-1",
+      "test_condition": "ANSYS HFSS/COMSOL 계산",
+      "source": "본문 Page 4"
+    }
+  ],
+  "notes": [
+    "이 논문은 기계적 물성보다 초전도/전자기 물성 중심이다.",
+    "인장강도, 항복강도, 연신율, 경도, 탄성계수 등은 직접 제시되지 않았다.",
+    "첫 실험으로는 본문+그림 캡션에서 수치형 물성을 구조화할 수 있는지 확인하기에 충분하다."
+  ]
+}

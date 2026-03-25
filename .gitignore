@@ -3,5 +3,8 @@ __pycache__/
 .DS_Store
 outputs/*
 !outputs/.gitkeep
+!outputs/material_property_experiment.json
+!outputs/ti6al4v_material_properties.json
+!outputs/ti6al4v_material_properties.md
 samples/*
 !samples/.gitkeep
