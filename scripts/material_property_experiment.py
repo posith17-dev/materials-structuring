@@ -163,25 +163,31 @@ def clean_common_noise(extracted_text: str) -> str:
     return text.strip()
 
 
-def _score_segment(text: str) -> int:
+def _score_segment(text: str) -> tuple[int, list[str]]:
     lower = text.lower()
     score = 0
+    reasons: list[str] = []
     if re.search(r"\d", text):
         score += 1
+        reasons.append("has_number")
     for unit in UNIT_PATTERNS:
         if unit.lower() in lower:
             score += 2
+            reasons.append(f"unit:{unit}")
     for keyword in PROPERTY_KEYWORDS:
         if keyword in lower:
             score += 3
+            reasons.append(f"keyword:{keyword}")
     if "figure" in lower or "table" in lower:
         score += 1
+        reasons.append("has_figure_or_table_ref")
     if "±" in text or re.search(r"\d+\s*[–-]\s*\d+", text):
         score += 2
-    return score
+        reasons.append("has_range_or_error")
+    return score, reasons
 
 
-def select_candidate_segments(extracted_text: str, max_segments: int = 12) -> list[str]:
+def select_candidate_segments(extracted_text: str, max_segments: int = 12) -> list[dict[str, object]]:
     raw_segments = re.split(r"\n\s*\n+", extracted_text)
     cleaned_segments: list[str] = []
     for segment in raw_segments:
@@ -200,21 +206,27 @@ def select_candidate_segments(extracted_text: str, max_segments: int = 12) -> li
             if len(chunk) >= 80:
                 cleaned_segments.append(chunk)
 
-    scored = []
+    scored: list[tuple[int, int, str, list[str]]] = []
     for segment in cleaned_segments:
-        score = _score_segment(segment)
+        score, reasons = _score_segment(segment)
         if score >= 4:
-            scored.append((score, len(segment), segment))
+            scored.append((score, len(segment), segment, reasons))
 
-    scored.sort(key=lambda item: (-item[0], -item[1]))
+    scored.sort(key=lambda item: (-item[0], -item[1], item[2]))
 
-    selected: list[str] = []
+    selected: list[dict[str, object]] = []
     seen = set()
-    for _, _, segment in scored:
+    for score, _, segment, reasons in scored:
         if segment in seen:
             continue
         seen.add(segment)
-        selected.append(segment)
+        selected.append(
+            {
+                "score": score,
+                "reasons": reasons,
+                "text": segment,
+            }
+        )
         if len(selected) >= max_segments:
             break
     return selected
@@ -223,7 +235,8 @@ def select_candidate_segments(extracted_text: str, max_segments: int = 12) -> li
 def build_output_stub(source_path: Path, extracted_text: str) -> dict:
     cleaned_text = clean_common_noise(extracted_text)
     preview = cleaned_text[:3000]
-    candidate_segments = select_candidate_segments(cleaned_text)
+    candidate_segment_details = select_candidate_segments(cleaned_text)
+    candidate_segments = [str(item["text"]) for item in candidate_segment_details]
     candidate_text = "\n\n".join(candidate_segments)
     return {
         "source_file": str(source_path),
@@ -232,6 +245,7 @@ def build_output_stub(source_path: Path, extracted_text: str) -> dict:
         "records": [],
         "text_preview": preview,
         "cleaned_text_preview": cleaned_text[:6000],
+        "candidate_segment_details": candidate_segment_details,
         "candidate_segments": candidate_segments,
         "candidate_text": candidate_text,
         "notes": [
