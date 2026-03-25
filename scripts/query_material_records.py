@@ -3,6 +3,17 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
+import shutil
+import tempfile
+
+
+def _open_readonly_copy(db_path: Path):
+    import duckdb  # type: ignore
+
+    tmp_dir = Path(tempfile.mkdtemp(prefix="materials-duckdb-query-"))
+    tmp_db = tmp_dir / db_path.name
+    shutil.copy2(db_path, tmp_db)
+    return duckdb.connect(str(tmp_db), read_only=True)
 
 
 def main() -> int:
@@ -15,15 +26,20 @@ def main() -> int:
     parser.add_argument("--db", required=True, help="DuckDB file path")
     parser.add_argument("--material", default="", help="Substring filter for material/composition")
     parser.add_argument("--property", dest="property_name", default="", help="Substring filter for property")
+    parser.add_argument(
+        "--canonical-property",
+        default="",
+        help="Exact filter for normalized property name (e.g. ultimate_tensile_strength)",
+    )
     parser.add_argument("--document-type", default="", help="Exact filter for document type")
     parser.add_argument("--limit", type=int, default=20, help="Max rows to print")
     args = parser.parse_args()
 
-    con = duckdb.connect(str(Path(args.db)), read_only=True)
+    con = _open_readonly_copy(Path(args.db))
 
     query = """
       SELECT document_type, document_id, material_name_or_composition, property_name,
-             property_value, property_unit, test_condition, source_ref
+             canonical_property_name, property_value, property_unit, test_condition, source_ref
       FROM material_records
       WHERE 1=1
     """
@@ -35,6 +51,9 @@ def main() -> int:
     if args.property_name.strip():
         query += " AND lower(property_name) LIKE lower(?)"
         params.append(f"%{args.property_name.strip()}%")
+    if args.canonical_property.strip():
+        query += " AND canonical_property_name = ?"
+        params.append(args.canonical_property.strip())
     if args.document_type.strip():
         query += " AND document_type = ?"
         params.append(args.document_type.strip())

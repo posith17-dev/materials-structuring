@@ -33,8 +33,10 @@ def main() -> int:
                     rec.get("source_file", ""),
                     rec.get("material_name_or_composition", ""),
                     rec.get("property_name", ""),
+                    rec.get("canonical_property_name", ""),
                     rec.get("property_value", ""),
                     rec.get("property_unit", ""),
+                    rec.get("canonical_property_unit", ""),
                     rec.get("test_condition", ""),
                     rec.get("source_ref", ""),
                 )
@@ -42,6 +44,7 @@ def main() -> int:
 
     db_path.parent.mkdir(parents=True, exist_ok=True)
     con = duckdb.connect(str(db_path))
+    con.execute("DROP TABLE IF EXISTS material_records")
     con.execute(
         """
         CREATE TABLE IF NOT EXISTS material_records (
@@ -51,8 +54,10 @@ def main() -> int:
           source_file VARCHAR,
           material_name_or_composition VARCHAR,
           property_name VARCHAR,
+          canonical_property_name VARCHAR,
           property_value VARCHAR,
           property_unit VARCHAR,
+          canonical_property_unit VARCHAR,
           test_condition VARCHAR,
           source_ref VARCHAR
         )
@@ -63,9 +68,10 @@ def main() -> int:
         """
         INSERT INTO material_records (
           document_id, document_type, document_title, source_file,
-          material_name_or_composition, property_name, property_value,
-          property_unit, test_condition, source_ref
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+          material_name_or_composition, property_name, canonical_property_name,
+          property_value, property_unit, canonical_property_unit,
+          test_condition, source_ref
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         rows,
     )

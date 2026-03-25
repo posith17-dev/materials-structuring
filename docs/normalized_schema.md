@@ -14,8 +14,10 @@
 
 - `material_name_or_composition`
 - `property_name`
+- `canonical_property_name`
 - `property_value`
 - `property_unit`
+- `canonical_property_unit`
 - `test_condition`
 - `source_ref`
 - `source_file`
@@ -29,4 +31,6 @@
 2. `test_condition`은 원문에 없으면 빈 문자열로 둔다.
 3. `source_ref`는 `Table 1`, `Figure 3`, `본문` 같은 짧은 출처 문자열이다.
 4. 값/단위는 원문 표기를 최대한 유지한다.
-5. 조성도 물성처럼 개별 레코드로 저장할 수 있다.
+5. `canonical_property_name`은 검색/집계를 위한 정규화 이름이다.
+6. `canonical_property_unit`은 `MPa`, `GPa`, `%`처럼 단위를 표준화한 값이다.
+7. 조성도 물성처럼 개별 레코드로 저장할 수 있다.

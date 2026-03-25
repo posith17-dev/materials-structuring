@@ -7,6 +7,63 @@ from pathlib import Path
 from typing import Any
 
 
+PROPERTY_ALIASES = {
+    "인장강도": "ultimate_tensile_strength",
+    "인장강도(uts)": "ultimate_tensile_strength",
+    "평균 인장강도(uts)": "ultimate_tensile_strength",
+    "uts": "ultimate_tensile_strength",
+    "ultimate tensile strength": "ultimate_tensile_strength",
+    "yield strength": "yield_strength",
+    "yield strength (0.2% offset)": "yield_strength",
+    "0.2% yield strength": "yield_strength",
+    "항복강도": "yield_strength",
+    "항복강도(0.2% offset)": "yield_strength",
+    "평균 항복강도(0.2% offset)": "yield_strength",
+    "elongation": "elongation",
+    "elongation to failure": "elongation",
+    "연신율": "elongation",
+    "young's modulus": "youngs_modulus",
+    "elastic modulus": "youngs_modulus",
+    "탄성계수": "youngs_modulus",
+    "경도": "hardness",
+    "hardness": "hardness",
+    "초전도 전이온도": "critical_temperature",
+    "transition temperature": "critical_temperature",
+    "superconducting transition temperature": "critical_temperature",
+    "초전도 전이온도(tc, fit)": "critical_temperature",
+    "london penetration depth": "london_penetration_depth",
+    "공진 주파수": "resonant_frequency",
+    "kinetic inductance fraction, αki": "kinetic_inductance_fraction",
+    "내부 품질계수, qi": "internal_quality_factor",
+    "magnetic participation ratio": "magnetic_participation_ratio",
+    "조성(ti)": "composition_ti",
+    "조성(al)": "composition_al",
+    "조성(v)": "composition_v",
+    "조성(fe 불순물)": "composition_fe",
+    "조성(fe)": "composition_fe",
+    "조성(o)": "composition_o",
+    "밀도": "density",
+    "density": "density",
+    "전단강도": "shear_strength",
+    "shear strength": "shear_strength",
+}
+
+UNIT_ALIASES = {
+    "mpa": "MPa",
+    "gpa": "GPa",
+    "ksi": "ksi",
+    "psi": "psi",
+    "wt%": "wt%",
+    "k": "K",
+    "ghz": "GHz",
+    "µm": "µm",
+    "um": "µm",
+    "m^-1": "m^-1",
+    "%": "%",
+    "hrc": "HRC",
+}
+
+
 def _infer_document_type(payload: dict[str, Any]) -> str:
     explicit = str(payload.get("document_type", "")).strip()
     if explicit:
@@ -51,6 +108,20 @@ def _iter_records(payload: dict[str, Any]) -> list[dict[str, Any]]:
     return []
 
 
+def _canonicalize_property_name(value: str) -> str:
+    key = value.strip().lower()
+    if not key:
+        return ""
+    return PROPERTY_ALIASES.get(key, key.replace(" ", "_").replace("-", "_"))
+
+
+def _canonicalize_unit(value: str) -> str:
+    key = value.strip()
+    if not key:
+        return ""
+    return UNIT_ALIASES.get(key.lower(), key)
+
+
 def normalize_payload(payload: dict[str, Any]) -> dict[str, Any]:
     source_file = str(payload.get("source_file", "")).strip()
     document_type = _infer_document_type(payload)
@@ -59,12 +130,16 @@ def normalize_payload(payload: dict[str, Any]) -> dict[str, Any]:
 
     normalized_records: list[dict[str, Any]] = []
     for record in _iter_records(payload):
+        property_name = str(record.get("property", record.get("property_name", ""))).strip()
+        property_unit = str(record.get("unit", record.get("property_unit", ""))).strip()
         normalized_records.append(
             {
                 "material_name_or_composition": str(record.get("material_name_or_composition", "")).strip(),
-                "property_name": str(record.get("property", record.get("property_name", ""))).strip(),
+                "property_name": property_name,
+                "canonical_property_name": _canonicalize_property_name(property_name),
                 "property_value": str(record.get("value", record.get("property_value", ""))).strip(),
-                "property_unit": str(record.get("unit", record.get("property_unit", ""))).strip(),
+                "property_unit": property_unit,
+                "canonical_property_unit": _canonicalize_unit(property_unit),
                 "test_condition": str(
                     record.get("experimental_condition", record.get("test_condition", ""))
                 ).strip(),

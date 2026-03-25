@@ -178,3 +178,20 @@ python3 /home/ubuntu/materials-structuring/scripts/query_material_records.py \
   --material Ti-6Al-4V \
   --property 인장강도
 ```
+
+정규화된 속성명 기준 조회:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/query_material_records.py \
+  --db /home/ubuntu/materials-structuring/storage/materials.duckdb \
+  --material Ti-6Al-4V \
+  --canonical-property ultimate_tensile_strength
+```
+
+소재별 속성 요약:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/summarize_material_records.py \
+  --db /home/ubuntu/materials-structuring/storage/materials.duckdb \
+  --material Ti-6Al-4V
+```
