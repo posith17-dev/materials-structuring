@@ -102,6 +102,15 @@ python3 /home/ubuntu/materials-structuring/scripts/review_extraction_records.py 
   --output /home/ubuntu/materials-structuring/outputs/llm_records_reviewed.json
 ```
 
+검수 반영 병합:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/merge_reviewed_records.py \
+  --experiment /home/ubuntu/materials-structuring/outputs/material_property_experiment.json \
+  --review /home/ubuntu/materials-structuring/outputs/llm_records_reviewed.json \
+  --output /home/ubuntu/materials-structuring/outputs/material_property_experiment_reviewed.json
+```
+
 OpenAI 자동 추출 실행:
 
 ```bash
