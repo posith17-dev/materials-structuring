@@ -63,6 +63,15 @@ python3 /home/ubuntu/materials-structuring/scripts/build_llm_extraction_input.py
   --output /home/ubuntu/materials-structuring/outputs/material_property_prompt_bundle.json
 ```
 
+문서군별 프롬프트 선택 예:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/build_llm_extraction_input.py \
+  --experiment /home/ubuntu/materials-structuring/outputs/WO2013162658A2_experiment.json \
+  --document-kind patent \
+  --output /home/ubuntu/materials-structuring/outputs/WO2013162658A2_patent_prompt_bundle.json
+```
+
 LLM 결과 병합:
 
 ```bash
@@ -86,6 +95,16 @@ python3 /home/ubuntu/materials-structuring/scripts/run_openai_material_extractio
   --experiment /home/ubuntu/materials-structuring/outputs/PMC8953245_experiment.json \
   --llm-output /home/ubuntu/materials-structuring/outputs/PMC8953245_openai_records.json \
   --merged-output /home/ubuntu/materials-structuring/outputs/PMC8953245_openai_merged.json
+```
+
+COA 문서 예:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/run_openai_material_extraction.py \
+  --experiment /home/ubuntu/materials-structuring/outputs/ti6al4v_coa_experiment.json \
+  --document-kind coa \
+  --llm-output /home/ubuntu/materials-structuring/outputs/ti6al4v_coa_openai_records.json \
+  --merged-output /home/ubuntu/materials-structuring/outputs/ti6al4v_coa_openai_merged.json
 ```
 
 메모:
@@ -113,6 +132,8 @@ python3 /home/ubuntu/materials-structuring/scripts/run_openai_material_extractio
 - 현재 샘플:
   - [ti6al4v_coa_sample.html](/home/ubuntu/materials-structuring/samples/ti6al4v_coa_sample.html)
   - [ti6al4v_coa_material_properties.md](/home/ubuntu/materials-structuring/outputs/ti6al4v_coa_material_properties.md)
+- COA 전용 프롬프트:
+  - [coa_property_extraction_prompt.md](/home/ubuntu/materials-structuring/prompts/coa_property_extraction_prompt.md)
 
 ## 운영 원칙
 

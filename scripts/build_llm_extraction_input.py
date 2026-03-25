@@ -5,19 +5,32 @@ import argparse
 import json
 from pathlib import Path
 
+PROMPT_BY_KIND = {
+    "paper": Path("/home/ubuntu/materials-structuring/prompts/material_property_extraction_prompt.md"),
+    "patent": Path("/home/ubuntu/materials-structuring/prompts/patent_composition_extraction_prompt.md"),
+    "coa": Path("/home/ubuntu/materials-structuring/prompts/coa_property_extraction_prompt.md"),
+}
+
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--experiment", required=True, help="Path to experiment JSON stub")
     parser.add_argument("--output", required=True, help="Path to write prompt bundle JSON")
     parser.add_argument("--prompt-override", default="", help="Optional prompt file path")
+    parser.add_argument("--document-kind", choices=sorted(PROMPT_BY_KIND), default="", help="Optional logical document kind")
     args = parser.parse_args()
 
     experiment_path = Path(args.experiment)
     output_path = Path(args.output)
 
     payload = json.loads(experiment_path.read_text(encoding="utf-8"))
-    prompt_path = Path(args.prompt_override.strip() or payload["prompt_file"])
+    prompt_override = args.prompt_override.strip()
+    if prompt_override:
+        prompt_path = Path(prompt_override)
+    elif args.document_kind:
+        prompt_path = PROMPT_BY_KIND[args.document_kind]
+    else:
+        prompt_path = Path(payload["prompt_file"])
     prompt_text = prompt_path.read_text(encoding="utf-8")
 
     bundle = {

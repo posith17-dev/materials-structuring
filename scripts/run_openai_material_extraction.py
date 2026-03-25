@@ -18,6 +18,11 @@ ENV_CANDIDATES = [
 ]
 
 DEFAULT_MODEL = "gpt-4o-mini"
+PROMPT_BY_KIND = {
+    "paper": Path("/home/ubuntu/materials-structuring/prompts/material_property_extraction_prompt.md"),
+    "patent": Path("/home/ubuntu/materials-structuring/prompts/patent_composition_extraction_prompt.md"),
+    "coa": Path("/home/ubuntu/materials-structuring/prompts/coa_property_extraction_prompt.md"),
+}
 
 JSON_SCHEMA = {
     "name": "material_property_records",
@@ -138,6 +143,7 @@ def main() -> int:
     parser.add_argument("--merged-output", required=True, help="Path to write merged output JSON")
     parser.add_argument("--model", default="", help="Optional override model name")
     parser.add_argument("--prompt-override", default="", help="Optional prompt file path")
+    parser.add_argument("--document-kind", choices=sorted(PROMPT_BY_KIND), default="", help="Optional logical document kind")
     parser.add_argument(
         "--max-chars",
         type=int,
@@ -148,7 +154,13 @@ def main() -> int:
 
     experiment_path = Path(args.experiment)
     experiment = json.loads(experiment_path.read_text(encoding="utf-8"))
-    prompt_file = Path(args.prompt_override.strip() or experiment["prompt_file"])
+    prompt_override = args.prompt_override.strip()
+    if prompt_override:
+        prompt_file = Path(prompt_override)
+    elif args.document_kind:
+        prompt_file = PROMPT_BY_KIND[args.document_kind]
+    else:
+        prompt_file = Path(experiment["prompt_file"])
     source_file = Path(experiment["source_file"])
 
     extracted_text = extract_text(source_file)
