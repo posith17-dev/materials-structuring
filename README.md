@@ -121,6 +121,16 @@ python3 /home/ubuntu/materials-structuring/scripts/process_reviewed_experiments.
   --db /home/ubuntu/materials-structuring/storage/materials_reviewed.duckdb
 ```
 
+검수 품질 리포트:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/report_review_quality.py \
+  --reviews /home/ubuntu/materials-structuring/outputs/llm_records_reviewed.json \
+  --output /home/ubuntu/materials-structuring/outputs/review_quality_report.json \
+  --raw-db /home/ubuntu/materials-structuring/storage/materials.duckdb \
+  --reviewed-db /home/ubuntu/materials-structuring/storage/materials_reviewed.duckdb
+```
+
 OpenAI 자동 추출 실행:
 
 ```bash
