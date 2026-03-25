@@ -74,6 +74,15 @@ def extract_text_from_html(html_path: Path) -> str:
     return parser.get_text()
 
 
+def extract_text(input_path: Path) -> str:
+    suffix = input_path.suffix.lower()
+    if suffix == ".pdf":
+        return extract_text_from_pdf(input_path)
+    if suffix in {".html", ".htm"}:
+        return extract_text_from_html(input_path)
+    raise ValueError("input_must_be_pdf_or_html")
+
+
 def build_output_stub(source_path: Path, extracted_text: str) -> dict:
     preview = extracted_text[:3000]
     return {
@@ -107,12 +116,9 @@ def main() -> int:
         print(f"input_not_found={input_path}", file=sys.stderr)
         return 1
 
-    suffix = input_path.suffix.lower()
-    if suffix == ".pdf":
-        extracted_text = extract_text_from_pdf(input_path)
-    elif suffix in {".html", ".htm"}:
-        extracted_text = extract_text_from_html(input_path)
-    else:
+    try:
+        extracted_text = extract_text(input_path)
+    except ValueError:
         print("input_must_be_pdf_or_html", file=sys.stderr)
         return 1
     if not extracted_text.strip():
