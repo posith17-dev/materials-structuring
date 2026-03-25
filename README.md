@@ -55,7 +55,7 @@ python3 /home/ubuntu/materials-structuring/scripts/material_property_experiment.
 - PDF가 막히는 소스는 HTML 본문으로도 같은 스크립트를 돌릴 수 있습니다.
 - 지금은 LLM 호출까지 자동화하지 않고, 추출용 JSON 스텁을 만드는 단계입니다.
 - 실험 JSON에는 `candidate_segments` / `candidate_text`가 같이 들어가며, 숫자+단위+물성 키워드가 있는 구간을 우선 추립니다.
-- `candidate_segment_details`에는 각 후보 구간의 `score`와 선택 이유(`reasons`)가 함께 저장됩니다.
+- `candidate_segment_details`에는 각 후보 구간의 `score`, `matched_units`, `matched_keywords`, `flags`가 함께 저장됩니다.
 
 LLM 입력 번들 생성:
 
@@ -92,6 +92,14 @@ LLM 결과 검증:
 ```bash
 python3 /home/ubuntu/materials-structuring/scripts/validate_llm_extraction_output.py \
   --input /home/ubuntu/materials-structuring/outputs/llm_records.json
+```
+
+수동 검수 CLI:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/review_extraction_records.py \
+  --input /home/ubuntu/materials-structuring/outputs/llm_records.json \
+  --output /home/ubuntu/materials-structuring/outputs/llm_records_reviewed.json
 ```
 
 OpenAI 자동 추출 실행:

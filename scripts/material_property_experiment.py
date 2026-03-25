@@ -163,28 +163,34 @@ def clean_common_noise(extracted_text: str) -> str:
     return text.strip()
 
 
-def _score_segment(text: str) -> tuple[int, list[str]]:
+def _score_segment(text: str) -> tuple[int, dict[str, object]]:
     lower = text.lower()
     score = 0
-    reasons: list[str] = []
+    flags: list[str] = []
+    matched_units: list[str] = []
+    matched_keywords: list[str] = []
     if re.search(r"\d", text):
         score += 1
-        reasons.append("has_number")
+        flags.append("has_number")
     for unit in UNIT_PATTERNS:
         if unit.lower() in lower:
             score += 2
-            reasons.append(f"unit:{unit}")
+            matched_units.append(unit)
     for keyword in PROPERTY_KEYWORDS:
         if keyword in lower:
             score += 3
-            reasons.append(f"keyword:{keyword}")
+            matched_keywords.append(keyword)
     if "figure" in lower or "table" in lower:
         score += 1
-        reasons.append("has_figure_or_table_ref")
+        flags.append("has_figure_or_table_ref")
     if "±" in text or re.search(r"\d+\s*[–-]\s*\d+", text):
         score += 2
-        reasons.append("has_range_or_error")
-    return score, reasons
+        flags.append("has_range_or_error")
+    return score, {
+        "flags": flags,
+        "matched_units": sorted(set(matched_units)),
+        "matched_keywords": sorted(set(matched_keywords)),
+    }
 
 
 def select_candidate_segments(extracted_text: str, max_segments: int = 12) -> list[dict[str, object]]:
@@ -206,24 +212,26 @@ def select_candidate_segments(extracted_text: str, max_segments: int = 12) -> li
             if len(chunk) >= 80:
                 cleaned_segments.append(chunk)
 
-    scored: list[tuple[int, int, str, list[str]]] = []
+    scored: list[tuple[int, int, str, dict[str, object]]] = []
     for segment in cleaned_segments:
-        score, reasons = _score_segment(segment)
+        score, match_info = _score_segment(segment)
         if score >= 4:
-            scored.append((score, len(segment), segment, reasons))
+            scored.append((score, len(segment), segment, match_info))
 
     scored.sort(key=lambda item: (-item[0], -item[1], item[2]))
 
     selected: list[dict[str, object]] = []
     seen = set()
-    for score, _, segment, reasons in scored:
+    for score, _, segment, match_info in scored:
         if segment in seen:
             continue
         seen.add(segment)
         selected.append(
             {
                 "score": score,
-                "reasons": reasons,
+                "flags": match_info["flags"],
+                "matched_units": match_info["matched_units"],
+                "matched_keywords": match_info["matched_keywords"],
                 "text": segment,
             }
         )

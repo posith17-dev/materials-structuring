@@ -8,162 +8,210 @@
   "candidate_segment_details": [
     {
       "score": 23,
-      "reasons": [
-        "has_number",
-        "unit:MPa",
-        "unit:%",
-        "keyword:tensile strength",
-        "keyword:ultimate tensile strength",
-        "keyword:ductility",
-        "keyword:young",
-        "keyword:modulus",
-        "keyword:hardness"
+      "flags": [
+        "has_number"
+      ],
+      "matched_units": [
+        "%",
+        "MPa"
+      ],
+      "matched_keywords": [
+        "ductility",
+        "hardness",
+        "modulus",
+        "tensile strength",
+        "ultimate tensile strength",
+        "young"
       ],
       "text": "Abstract Shaped metal deposition is a novel technique to build near net-shape components layer by layer by tungsten inert gas welding. Especially for complex shapes and small quantities, this technique can significantly lower the production cost of components by reducing the buy-to-fly ratio and lead time for production, diminishing final machining and preventing scrap. Tensile testing of Ti-6Al-4V components fabricated by shaped metal deposition shows that the mechanical properties are competitive to material fabricated by conventional techniques. The ultimate tensile strength is between 936 and 1014 MPa, depending on the orientation and location. Tensile testing vertical to the deposition layers reveals ductility between 14 and 21%, whereas testing parallel to the layers gives a ductility between 6 and 11%. Ultimate tensile strength and ductility are inversely related. Heat treatment within the α+β phase field does not change the mechanical properties, but heat treatment within the β phase field increases the ultimate tensile strength and decreases the ductility. The differences in ultimate tensile strength and ductility can be related to the α lath size and orientation of the elongated, prior β grains. The micro-hardness and Young’s modulus are similar to conventional Ti-6Al-4V with low oxygen content."
     },
     {
       "score": 23,
-      "reasons": [
-        "has_number",
-        "unit:MPa",
-        "unit:%",
-        "keyword:tensile strength",
-        "keyword:ultimate tensile strength",
-        "keyword:ductility",
-        "keyword:young",
-        "keyword:modulus",
-        "keyword:hardness"
+      "flags": [
+        "has_number"
+      ],
+      "matched_units": [
+        "%",
+        "MPa"
+      ],
+      "matched_keywords": [
+        "ductility",
+        "hardness",
+        "modulus",
+        "tensile strength",
+        "ultimate tensile strength",
+        "young"
       ],
       "text": "Conclusions Shaped metal deposition produces net shape Ti-6Al-4V components with mechanical properties competitive to other additive layer manufacturing and, to some extent, to cast or wrought materials. The ultimate tensile strength varies between 936 and 1014 MPa, depending mainly on the orientation and location of the specimens. The ductility of specimens with tensile direction vertical to the deposition plate, generally between 14 and 21%, is two to three times larger than the one of specimens with tensile direction parallel to the deposition plate. The ultimate tensile strength is inversely proportional to the ductility. No significant difference in the mechanical properties is observed for components A and B. Heat treatment within the α+β phase field, followed by furnace cooling, does not change the properties, whereas heat treatment within the β phase field increases the ultimate tensile strength and decreases the ductility. The differences in the ultimate tensile strength and ductility can be related to the α lath size and to the orientation of the elongated, prior β grains. The hardness and the Young’s modulus are similar to conventional Ti-6Al-4V with low oxygen content."
     },
     {
       "score": 18,
-      "reasons": [
-        "has_number",
-        "unit:GPa",
-        "unit:%",
-        "unit:K",
-        "unit:um",
-        "keyword:tensile strength",
-        "keyword:ultimate tensile strength",
-        "keyword:hardness"
+      "flags": [
+        "has_number"
+      ],
+      "matched_units": [
+        "%",
+        "GPa",
+        "K",
+        "um"
+      ],
+      "matched_keywords": [
+        "hardness",
+        "tensile strength",
+        "ultimate tensile strength"
       ],
       "text": "The hardness of Ti-6Al-4V is very sensitive to contaminants like oxygen and nitrogen. For example, for an oxygen content of 0.56 wt.% a hardness of 3.70 GPa and for an oxygen content of 0.26 wt.% a hardness of 3.05 GPa is reported [ 23 ]. The hardness and the ultimate tensile strength of the as-fabricated SMD components agree with values reported for an α+β quenched Ti-6Al-4V alloy with an oxygen content of 0.26 wt.% [ 23 ]. This is in good accordance with the low oxygen (and nitrogen) content of an SMD component measured by instrumental gas analysis (0.16 wt.%) and suggests negligible contamination during the SMD."
     },
     {
       "score": 17,
-      "reasons": [
+      "flags": [
         "has_number",
-        "unit:MPa",
-        "unit:K",
-        "unit:um",
-        "keyword:tensile strength",
-        "keyword:ultimate tensile strength",
-        "keyword:ductility",
         "has_figure_or_table_ref"
+      ],
+      "matched_units": [
+        "K",
+        "MPa",
+        "um"
+      ],
+      "matched_keywords": [
+        "ductility",
+        "tensile strength",
+        "ultimate tensile strength"
       ],
       "text": "Applications of SMD depend on its competitiveness to other techniques. It is clear that SMD allows to cut production and material costs and to reduce development and lead times. But also the performance of the components must be compared among the competing techniques. Such a comparison is given in figure 15 , where in an ultimate tensile strength/ductility plot the shaded areas indicate the ASTM minimal requirements for wrought and cast material. All specimens, apart from those from the very top location tested in horizontal direction (H1), fulfill these minimum ASTM requirements of cast Ti-6Al-4V, and many satisfy even the more severe ASTM requirements for wrought material. In comparison with components from other additive layer manufacturing techniques like laser deposition [ 1 , 7 , 9 , 10 ] and electron beam freeform fabrication [ 12 , 13 ], most ultimate tensile strength values of SMD specimens are competitive (figure 15 ). Laser deposition may result in components with much higher ultimate tensile strength values in horizontal direction (1066 MPa). Yet, these specimens have weaker strength perpendicular to the deposition plane (832 MPa) due to lack-of-fusion porosity. This necessitates hot isostatic pressing, which homogenized but also significantly reduced the overall ultimate tensile strength [ 1 ]. The ductility is similar or better for SMD than for other deposition techniques."
     },
     {
       "score": 17,
-      "reasons": [
+      "flags": [
         "has_number",
-        "unit:MPa",
-        "unit:um",
-        "keyword:tensile strength",
-        "keyword:ultimate tensile strength",
-        "keyword:ductility",
         "has_figure_or_table_ref",
         "has_range_or_error"
+      ],
+      "matched_units": [
+        "MPa",
+        "um"
+      ],
+      "matched_keywords": [
+        "ductility",
+        "tensile strength",
+        "ultimate tensile strength"
       ],
       "text": "Figure 4 (a) shows the ultimate tensile strength and figure 4 (b) the ductility at room temperature for different orientations and locations. Naturally, the data show some scatter, but on average, the ultimate tensile strength of specimens with H orientations is slightly higher (983±22 MPa) than of specimens with V orientation (953±14 MPa). The results from specimens derived from components A and B are put together in the columns H1 and H2, as no significant difference is observed between these two charges. Discerning in more detail between different locations, specimens with H orientation show higher ultimate tensile strength for location 1 than for location 2. Furthermore, for specimens with V orientation, the ultimate tensile strength is slightly smaller at location 2 than at location 3."
     },
     {
       "score": 17,
-      "reasons": [
+      "flags": [
         "has_number",
-        "unit:GPa",
-        "unit:K",
-        "keyword:tensile strength",
-        "keyword:ultimate tensile strength",
-        "keyword:hardness",
         "has_figure_or_table_ref",
         "has_range_or_error"
+      ],
+      "matched_units": [
+        "GPa",
+        "K"
+      ],
+      "matched_keywords": [
+        "hardness",
+        "tensile strength",
+        "ultimate tensile strength"
       ],
       "text": "Vickers hardness The micro-hardness shows a certain scatter for both components, yet no obvious dependence on the wall height (figure 14 ). The average micro-hardness is 3.26±0.14 GPa for component A and 3.05±0.25 GPa for component B. Generally, for most materials the ultimate tensile strength and hardness are linearly related. However, in the present case, the spatial variation of the ultimate tensile strength (figure 4 (a)) is too weak for an observable hardness dependence (figure 14 )."
     },
     {
       "score": 16,
-      "reasons": [
+      "flags": [
         "has_number",
-        "unit:MPa",
-        "unit:GPa",
-        "unit:K",
-        "keyword:young",
-        "keyword:modulus",
         "has_figure_or_table_ref",
         "has_range_or_error"
+      ],
+      "matched_units": [
+        "GPa",
+        "K",
+        "MPa"
+      ],
+      "matched_keywords": [
+        "modulus",
+        "young"
       ],
       "text": "Tensile testing The tensile deformation curves show extensive plastic deformation with limited work hardening (figure 3 ). The Young’s modulus derived from this experiment is 71 GPa for stresses between 500 and 800 MPa. This value is lower than the one derived by impulse excitation technique, which gives a room temperature value of 117±1 GPa for component B, independent of the orientation and location. The Young’s modulus deduced from tensile tests is generally considered less reliable than that from dynamic methods like the impulse excitation technique, due to the larger experimental error and the difficulty to reckon with the influence of the set-up tensile tests."
     },
     {
       "score": 14,
-      "reasons": [
+      "flags": [
         "has_number",
-        "unit:um",
-        "unit:mm",
-        "keyword:ductility",
-        "keyword:grain size",
         "has_figure_or_table_ref",
         "has_range_or_error"
+      ],
+      "matched_units": [
+        "mm",
+        "um"
+      ],
+      "matched_keywords": [
+        "ductility",
+        "grain size"
       ],
       "text": "Morphology and microstructure Viewed from the side, the surfaces of the components exhibit a layered structure from the welding and also show large, elongated grains (figure 6 ). These grains were growing epitaxially, inclined in a direction to the layers following the temperature field resulting from the moving welding torch. Presumably, these elongated grains are prior β grains. Their average grain size is estimated from the appearance on the component surfaces. The width in horizontal and vertical directions is used to characterize the size of the elongated grains, since these directions are especially relevant for the ductility of tensile testing. This is shown in figure 7 by plotting these grain sizes in relation with the ductility of tensile specimens derived from the respective region with the respective tensile direction. Because of the variation in grain sizes, the standard deviation is rather large. Yet, it can be summarized that the grain sizes are smaller in horizontal than in vertical direction, and that the ductility increases with the grain size in the tensile direction. The grain size perpendicular to the tensile directions is about 1–4 mm. Much larger grain sizes are expected in the tensile specimens heat treated at 1040 °C. Yet, due to the small sizes of the tensile specimens, a conclusive grain size determination is not possible, and usually only one grain within the gauge length must be assumed."
     },
     {
       "score": 14,
-      "reasons": [
+      "flags": [
         "has_number",
-        "unit:MPa",
-        "unit:mm",
-        "keyword:ductility",
-        "keyword:grain size",
         "has_figure_or_table_ref",
         "has_range_or_error"
+      ],
+      "matched_units": [
+        "MPa",
+        "mm"
+      ],
+      "matched_keywords": [
+        "ductility",
+        "grain size"
       ],
       "text": "The orientation dependence of higher ductility in specimens with V orientation, compared to specimens with H orientation, must be attributed to the shape of the elongated, prior β grains growing roughly in the vertical direction (figure 6 ). Due to the orientation of these elongated grains, the grain size in horizontal direction is smaller than in vertical direction (figure 7 ). Therefore tensile specimens with H orientation contain a higher amount of grain boundaries than specimens with V orientation. Because grain boundaries are potential sources of failure, the H orientation may lead to a lower ductility compared to the V orientation. For both orientations perpendicular to the tensile direction, the size of the tensile specimens (cross section=3×2 mm 2 ) and the size of the elongated prior β grains (∼1–4 mm) are comparable. Therefore, an influence of the grain size perpendicular to the tensile direction cannot be observed."
     },
     {
       "score": 14,
-      "reasons": [
-        "has_number",
-        "unit:MPa",
-        "unit:%",
-        "keyword:tensile strength",
-        "keyword:ultimate tensile strength",
-        "keyword:ductility"
+      "flags": [
+        "has_number"
+      ],
+      "matched_units": [
+        "%",
+        "MPa"
+      ],
+      "matched_keywords": [
+        "ductility",
+        "tensile strength",
+        "ultimate tensile strength"
       ],
       "text": "Whereas the ultimate tensile strength depends only slightly on the orientation and location, the ductility is very sensitive to these factors. The ductility is significantly smaller for H oriented than for V oriented specimens, and is the smallest (5.1%) for the H1A specimen. For the V oriented specimens, also a spatial dependence of ductility is observed. Ductility is highest at location 2 (19.1%), in comparison with 12.5% for location 3."
     },
     {
       "score": 12,
-      "reasons": [
+      "flags": [
         "has_number",
-        "unit:K",
-        "unit:um",
-        "keyword:tensile strength",
-        "keyword:ultimate tensile strength",
         "has_figure_or_table_ref"
+      ],
+      "matched_units": [
+        "K",
+        "um"
+      ],
+      "matched_keywords": [
+        "tensile strength",
+        "ultimate tensile strength"
       ],
       "text": "Discussion According to Lütjering [ 19 ], the effective slip length determines the mechanical properties of Ti alloys with fully lamellar microstructure. In the case of α laths separated by the β phase, it is assumed that the width of the α laths determines the effective slip length. Lütjering states that the yield stress decreases with increasing slip length. Since in the present case little work hardening is observed (figure 3 ), also the ultimate tensile strength should decrease with the lath width. This inverse relation between ultimate tensile strength and lath width agrees with the experimental results (figure 11 )."
     },
     {
       "score": 12,
-      "reasons": [
-        "has_number",
-        "unit:K",
-        "keyword:young",
-        "keyword:modulus",
-        "keyword:hardness"
+      "flags": [
+        "has_number"
+      ],
+      "matched_units": [
+        "K"
+      ],
+      "matched_keywords": [
+        "hardness",
+        "modulus",
+        "young"
       ],
       "text": "Vickers micro-hardness was measured with a Leitz micro-hardness tester with a load of 100 g on polished cross sections. Many indents were performed on every cross-section ( y – z planes) in order to obtain reasonable statistics and information on possible changes over the component height. The dynamic Young’s modulus of component B was measured at room temperature by the impulse excitation technique [ 20 , 21 ]. Bars were investigated from locations 2 and 3 with length axis parallel or perpendicular to the deposition plane."
     }
