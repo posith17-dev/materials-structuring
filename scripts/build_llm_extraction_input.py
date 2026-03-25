@@ -37,7 +37,8 @@ def main() -> int:
         "source_file": payload.get("source_file", ""),
         "prompt_file": str(prompt_path),
         "instructions": prompt_text,
-        "text": payload.get("text_preview", ""),
+        "text": payload.get("candidate_text") or payload.get("text_preview", ""),
+        "candidate_segments": payload.get("candidate_segments", []),
         "expected_schema": {
             "records": [
                 {

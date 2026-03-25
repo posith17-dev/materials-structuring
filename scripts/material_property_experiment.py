@@ -10,6 +10,65 @@ from html.parser import HTMLParser
 
 
 PROMPT_PATH = Path("/home/ubuntu/materials-structuring/prompts/material_property_extraction_prompt.md")
+PROPERTY_KEYWORDS = [
+    "tensile strength",
+    "ultimate tensile strength",
+    "yield strength",
+    "ductility",
+    "elongation",
+    "young",
+    "modulus",
+    "hardness",
+    "grain size",
+    "density",
+    "transition temperature",
+    "penetration depth",
+    "heat capacity",
+    "resistance",
+    "조성",
+    "인장강도",
+    "항복강도",
+    "연신율",
+    "탄성계수",
+    "경도",
+    "밀도",
+]
+UNIT_PATTERNS = [
+    "MPa",
+    "GPa",
+    "ksi",
+    "psi",
+    "wt%",
+    "at.%",
+    "%",
+    "K",
+    "GHz",
+    "µm",
+    "um",
+    "mm",
+    "m^-1",
+    "HRC",
+]
+NOISE_PATTERNS = [
+    r"Skip to main content",
+    r"An official website of the United States government",
+    r"Official websites use \.gov.*?official, secure websites\.",
+    r"Search PMC Full-Text Archive Search in PMC",
+    r"Journal List",
+    r"User Guide",
+    r"Dashboard",
+    r"Publications",
+    r"Account settings",
+    r"Log out",
+    r"Log in",
+    r"Search NCBI",
+    r"Search in PubMed",
+    r"Search in PMC",
+    r"View in NLM Catalog",
+    r"Add to search",
+    r"As a library, NLM provides access to scientific literature\..*?Copyright Notice",
+    r"Find articles by .*?(?=\n|$)",
+]
 
 
 def extract_text_from_pdf(pdf_path: Path) -> str:
@@ -83,16 +142,101 @@ def extract_text(input_path: Path) -> str:
     raise ValueError("input_must_be_pdf_or_html")
 
 
+def clean_common_noise(extracted_text: str) -> str:
+    lines = extracted_text.splitlines()
+    cleaned_lines: list[str] = []
+    for line in lines:
+        text = line.strip()
+        if not text:
+            cleaned_lines.append("")
+            continue
+        for pattern in NOISE_PATTERNS:
+            text = re.sub(pattern, " ", text, flags=re.IGNORECASE | re.DOTALL)
+        text = re.sub(r"\s+", " ", text).strip()
+        if text:
+            cleaned_lines.append(text)
+        else:
+            cleaned_lines.append("")
+
+    text = "\n".join(cleaned_lines)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
+def _score_segment(text: str) -> int:
+    lower = text.lower()
+    score = 0
+    if re.search(r"\d", text):
+        score += 1
+    for unit in UNIT_PATTERNS:
+        if unit.lower() in lower:
+            score += 2
+    for keyword in PROPERTY_KEYWORDS:
+        if keyword in lower:
+            score += 3
+    if "figure" in lower or "table" in lower:
+        score += 1
+    if "±" in text or re.search(r"\d+\s*[–-]\s*\d+", text):
+        score += 2
+    return score
+
+
+def select_candidate_segments(extracted_text: str, max_segments: int = 12) -> list[str]:
+    raw_segments = re.split(r"\n\s*\n+", extracted_text)
+    cleaned_segments: list[str] = []
+    for segment in raw_segments:
+        normalized = re.sub(r"\s+", " ", segment).strip()
+        if len(normalized) < 40:
+            continue
+        cleaned_segments.append(normalized)
+
+    if len(cleaned_segments) <= 2:
+        sentences = re.split(r"(?<=[.!?])\s+(?=[A-ZΑ-Ω가-힣])", extracted_text)
+        cleaned_segments = []
+        window_size = 3
+        for idx in range(len(sentences)):
+            chunk = " ".join(s.strip() for s in sentences[idx : idx + window_size] if s.strip())
+            chunk = re.sub(r"\s+", " ", chunk).strip()
+            if len(chunk) >= 80:
+                cleaned_segments.append(chunk)
+
+    scored = []
+    for segment in cleaned_segments:
+        score = _score_segment(segment)
+        if score >= 4:
+            scored.append((score, len(segment), segment))
+
+    scored.sort(key=lambda item: (-item[0], -item[1]))
+
+    selected: list[str] = []
+    seen = set()
+    for _, _, segment in scored:
+        if segment in seen:
+            continue
+        seen.add(segment)
+        selected.append(segment)
+        if len(selected) >= max_segments:
+            break
+    return selected
+
+
 def build_output_stub(source_path: Path, extracted_text: str) -> dict:
-    preview = extracted_text[:3000]
+    cleaned_text = clean_common_noise(extracted_text)
+    preview = cleaned_text[:3000]
+    candidate_segments = select_candidate_segments(cleaned_text)
+    candidate_text = "\n\n".join(candidate_segments)
     return {
         "source_file": str(source_path),
         "prompt_file": str(PROMPT_PATH),
         "status": "ready_for_llm_extraction",
         "records": [],
         "text_preview": preview,
+        "cleaned_text_preview": cleaned_text[:6000],
+        "candidate_segments": candidate_segments,
+        "candidate_text": candidate_text,
         "notes": [
             "Run an LLM extraction using the prompt file and the extracted text.",
+            "Prefer candidate_text or candidate_segments before using the full document preview.",
             "Keep only explicit material-property records.",
             "Save validated records back into this JSON structure.",
         ],
