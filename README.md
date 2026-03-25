@@ -5,7 +5,7 @@
 현재 목표는 "기초과학"이 아니라 **과학 데이터 구조화**입니다.
 
 핵심 기술 축:
-- PDF 파싱
+- PDF/HTML 파싱
 - 표/문단 추출
 - LLM 기반 정보 추출
 - 정규화 스키마 적재
@@ -51,7 +51,8 @@ python3 /home/ubuntu/materials-structuring/scripts/material_property_experiment.
 ```
 
 주의:
-- `pypdf`가 설치돼 있어야 PDF 텍스트 추출이 됩니다.
+- PDF는 `pypdf`가 설치돼 있어야 텍스트 추출이 됩니다.
+- PDF가 막히는 소스는 HTML 본문으로도 같은 스크립트를 돌릴 수 있습니다.
 - 지금은 LLM 호출까지 자동화하지 않고, 추출용 JSON 스텁을 만드는 단계입니다.
 
 ## 이후 확장 후보

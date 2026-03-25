@@ -6,5 +6,8 @@ outputs/*
 !outputs/material_property_experiment.json
 !outputs/ti6al4v_material_properties.json
 !outputs/ti6al4v_material_properties.md
+!outputs/PMC5109614_experiment.json
+!outputs/PMC5109614_material_properties.json
+!outputs/PMC5109614_material_properties.md
 samples/*
 !samples/.gitkeep

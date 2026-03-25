@@ -4,7 +4,9 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+import re
 import sys
+from html.parser import HTMLParser
 
 
 PROMPT_PATH = Path("/home/ubuntu/materials-structuring/prompts/material_property_extraction_prompt.md")
@@ -28,6 +30,50 @@ def extract_text_from_pdf(pdf_path: Path) -> str:
     return "\n\n".join(pages)
 
 
+class _HTMLTextExtractor(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self._chunks: list[str] = []
+        self._skip_depth = 0
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag in {"script", "style"}:
+            self._skip_depth += 1
+            return
+        if self._skip_depth:
+            return
+        if tag in {"p", "div", "section", "article", "h1", "h2", "h3", "h4", "h5", "h6", "li", "tr", "caption"}:
+            self._chunks.append("\n")
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in {"script", "style"} and self._skip_depth:
+            self._skip_depth -= 1
+            return
+        if self._skip_depth:
+            return
+        if tag in {"p", "div", "section", "article", "li", "tr", "caption"}:
+            self._chunks.append("\n")
+
+    def handle_data(self, data: str) -> None:
+        if self._skip_depth:
+            return
+        text = data.strip()
+        if text:
+            self._chunks.append(text)
+
+    def get_text(self) -> str:
+        text = " ".join(self._chunks)
+        text = re.sub(r"\n\s*\n+", "\n\n", text)
+        text = re.sub(r"[ \t]+", " ", text)
+        return text.strip()
+
+
+def extract_text_from_html(html_path: Path) -> str:
+    parser = _HTMLTextExtractor()
+    parser.feed(html_path.read_text(encoding="utf-8", errors="ignore"))
+    return parser.get_text()
+
+
 def build_output_stub(source_path: Path, extracted_text: str) -> dict:
     preview = extracted_text[:3000]
     return {
@@ -46,7 +92,7 @@ def build_output_stub(source_path: Path, extracted_text: str) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input", required=True, help="Path to a PDF paper")
+    parser.add_argument("--input", required=True, help="Path to a PDF or HTML paper")
     parser.add_argument(
         "--output",
         default="/home/ubuntu/materials-structuring/outputs/material_property_experiment.json",
@@ -61,11 +107,14 @@ def main() -> int:
         print(f"input_not_found={input_path}", file=sys.stderr)
         return 1
 
-    if input_path.suffix.lower() != ".pdf":
-        print("input_must_be_pdf", file=sys.stderr)
+    suffix = input_path.suffix.lower()
+    if suffix == ".pdf":
+        extracted_text = extract_text_from_pdf(input_path)
+    elif suffix in {".html", ".htm"}:
+        extracted_text = extract_text_from_html(input_path)
+    else:
+        print("input_must_be_pdf_or_html", file=sys.stderr)
         return 1
-
-    extracted_text = extract_text_from_pdf(input_path)
     if not extracted_text.strip():
         print("no_text_extracted", file=sys.stderr)
         return 1

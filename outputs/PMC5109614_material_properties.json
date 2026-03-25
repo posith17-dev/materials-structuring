@@ -1,0 +1,126 @@
+{
+  "source_file": "/home/ubuntu/materials-structuring/samples/PMC5109614.html",
+  "article_title": "Mechanical properties of Ti-6Al-4V specimens produced by shaped metal deposition",
+  "records": [
+    {
+      "material_name_or_composition": "Ti-6Al-4V (SMD fabricated)",
+      "property": "산소 함량",
+      "value": "0.16",
+      "unit": "wt.%",
+      "experimental_condition": "inert gas chamber, instrumental gas analysis of final product",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (SMD fabricated)",
+      "property": "질소 함량",
+      "value": "0.0041",
+      "unit": "wt.%",
+      "experimental_condition": "inert gas chamber, instrumental gas analysis of final product",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (supplier wire)",
+      "property": "산소 함량",
+      "value": "0.142–0.173",
+      "unit": "wt.%",
+      "experimental_condition": "supplier-reported wire composition",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (supplier wire)",
+      "property": "질소 함량",
+      "value": "0.003–0.009",
+      "unit": "wt.%",
+      "experimental_condition": "supplier-reported wire composition",
+      "source": "본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (SMD fabricated)",
+      "property": "인장강도(UTS)",
+      "value": "936–1014",
+      "unit": "MPa",
+      "experimental_condition": "orientation/location dependent, tensile testing",
+      "source": "Abstract / 본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (vertical to deposition layers)",
+      "property": "연신율/ductility",
+      "value": "14–21",
+      "unit": "%",
+      "experimental_condition": "tensile direction vertical to deposition layers",
+      "source": "Abstract / 본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (parallel to deposition layers)",
+      "property": "연신율/ductility",
+      "value": "6–11",
+      "unit": "%",
+      "experimental_condition": "tensile direction parallel to deposition layers",
+      "source": "Abstract / 본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (component B, tensile-test derived)",
+      "property": "Young's modulus",
+      "value": "71",
+      "unit": "GPa",
+      "experimental_condition": "stresses between 500 and 800 MPa",
+      "source": "Figure 3 / 본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (component B, impulse excitation)",
+      "property": "Young's modulus",
+      "value": "117±1",
+      "unit": "GPa",
+      "experimental_condition": "room temperature, independent of orientation and location",
+      "source": "Figure 3 / 본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (H orientation specimens)",
+      "property": "평균 인장강도(UTS)",
+      "value": "983±22",
+      "unit": "MPa",
+      "experimental_condition": "room temperature, different locations/orientations",
+      "source": "Figure 4a / 본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (V orientation specimens)",
+      "property": "평균 인장강도(UTS)",
+      "value": "953±14",
+      "unit": "MPa",
+      "experimental_condition": "room temperature, different locations/orientations",
+      "source": "Figure 4a / 본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (H1A specimen)",
+      "property": "ductility",
+      "value": "5.1",
+      "unit": "%",
+      "experimental_condition": "room temperature",
+      "source": "Figure 4b / 본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (V orientation, location 2)",
+      "property": "ductility",
+      "value": "19.1",
+      "unit": "%",
+      "experimental_condition": "room temperature",
+      "source": "Figure 4b / 본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (V orientation, location 3)",
+      "property": "ductility",
+      "value": "12.5",
+      "unit": "%",
+      "experimental_condition": "room temperature",
+      "source": "Figure 4b / 본문"
+    },
+    {
+      "material_name_or_composition": "Ti-6Al-4V (prior β grains, perpendicular to tensile directions)",
+      "property": "grain size",
+      "value": "1–4",
+      "unit": "mm",
+      "experimental_condition": "estimated from component surface appearance",
+      "source": "Figure 7 / 본문"
+    }
+  ]
+}
