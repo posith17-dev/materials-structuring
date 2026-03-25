@@ -111,6 +111,16 @@ python3 /home/ubuntu/materials-structuring/scripts/merge_reviewed_records.py \
   --output /home/ubuntu/materials-structuring/outputs/material_property_experiment_reviewed.json
 ```
 
+검수 완료 결과를 정규화/DB 적재:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/process_reviewed_experiments.py \
+  --input /home/ubuntu/materials-structuring/outputs/material_property_experiment_reviewed.json \
+  --normalized-output /home/ubuntu/materials-structuring/outputs/reviewed_normalized_documents.json \
+  --jsonl-output /home/ubuntu/materials-structuring/outputs/reviewed_normalized_records.jsonl \
+  --db /home/ubuntu/materials-structuring/storage/materials_reviewed.duckdb
+```
+
 OpenAI 자동 추출 실행:
 
 ```bash

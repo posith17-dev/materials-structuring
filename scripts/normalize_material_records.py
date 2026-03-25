@@ -68,7 +68,13 @@ def _infer_document_type(payload: dict[str, Any]) -> str:
     explicit = str(payload.get("document_type", "")).strip()
     if explicit:
         return explicit
+    source_file = str(payload.get("source_file", "")).lower()
+    title = _infer_document_title(payload).lower()
+    if "coa" in source_file or "certificate" in source_file or "coa" in title or "certificate" in title:
+        return "certificate_of_analysis"
     if payload.get("patent_number"):
+        return "patent"
+    if "patent" in source_file or "patent" in title:
         return "patent"
     return "paper"
 
@@ -122,6 +128,17 @@ def _canonicalize_unit(value: str) -> str:
     return UNIT_ALIASES.get(key.lower(), key)
 
 
+def _material_name_or_composition(record: dict[str, Any]) -> str:
+    direct = str(record.get("material_name_or_composition", "")).strip()
+    if direct:
+        return direct
+    material_name = str(record.get("material_name", "")).strip()
+    composition = str(record.get("composition", "")).strip()
+    if material_name and composition:
+        return f"{material_name} ({composition})"
+    return material_name or composition
+
+
 def normalize_payload(payload: dict[str, Any]) -> dict[str, Any]:
     source_file = str(payload.get("source_file", "")).strip()
     document_type = _infer_document_type(payload)
@@ -134,7 +151,7 @@ def normalize_payload(payload: dict[str, Any]) -> dict[str, Any]:
         property_unit = str(record.get("unit", record.get("property_unit", ""))).strip()
         normalized_records.append(
             {
-                "material_name_or_composition": str(record.get("material_name_or_composition", "")).strip(),
+                "material_name_or_composition": _material_name_or_composition(record),
                 "property_name": property_name,
                 "canonical_property_name": _canonicalize_property_name(property_name),
                 "property_value": str(record.get("value", record.get("property_value", ""))).strip(),
