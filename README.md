@@ -143,3 +143,19 @@ python3 /home/ubuntu/materials-structuring/scripts/run_openai_material_extractio
 - PDF 1개에서 10개 필드를 뽑는 것부터 시작한다
 - 출력은 반드시 구조화 JSON/CSV로 남긴다
 - 검수 가능한 수준인지 먼저 보고, 그다음 자동화를 늘린다
+
+## 정규화
+
+- 문서군별 결과는 공통 코어 스키마로 다시 맞춥니다.
+- 스키마 문서:
+  - [normalized_schema.md](/home/ubuntu/materials-structuring/docs/normalized_schema.md)
+- 정규화 스크립트:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/normalize_material_records.py \
+  --input \
+    /home/ubuntu/materials-structuring/outputs/PMC5109614_material_properties.json \
+    /home/ubuntu/materials-structuring/outputs/PMC8953245_material_properties.json \
+  --output /home/ubuntu/materials-structuring/outputs/normalized_documents.json \
+  --jsonl-output /home/ubuntu/materials-structuring/outputs/normalized_records.jsonl
+```

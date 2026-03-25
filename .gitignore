@@ -23,6 +23,8 @@ outputs/*
 !outputs/ti6al4v_coa_experiment.json
 !outputs/ti6al4v_coa_material_properties.json
 !outputs/ti6al4v_coa_material_properties.md
+!outputs/normalized_documents.json
+!outputs/normalized_records.jsonl
 samples/*
 !samples/.gitkeep
 !samples/WO2013162658A2_patent_excerpt.html
