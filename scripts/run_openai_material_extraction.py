@@ -22,6 +22,7 @@ PROMPT_BY_KIND = {
     "paper": Path("/home/ubuntu/materials-structuring/prompts/material_property_extraction_prompt.md"),
     "patent": Path("/home/ubuntu/materials-structuring/prompts/patent_composition_extraction_prompt.md"),
     "coa": Path("/home/ubuntu/materials-structuring/prompts/coa_property_extraction_prompt.md"),
+    "msds": Path("/home/ubuntu/materials-structuring/prompts/msds_property_extraction_prompt.md"),
 }
 
 JSON_SCHEMA = {

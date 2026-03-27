@@ -150,6 +150,16 @@ python3 /home/ubuntu/materials-structuring/scripts/run_openai_material_extractio
   --merged-output /home/ubuntu/materials-structuring/outputs/ti6al4v_coa_openai_merged.json
 ```
 
+MSDS 문서 예:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/run_openai_material_extraction.py \
+  --experiment /home/ubuntu/materials-structuring/outputs/msds_kosha_000939_experiment.json \
+  --document-kind msds \
+  --llm-output /home/ubuntu/materials-structuring/outputs/msds_kosha_000939_openai_records.json \
+  --merged-output /home/ubuntu/materials-structuring/outputs/msds_kosha_000939_openai_merged.json
+```
+
 메모:
 - `OPENAI_API_KEY`는 환경변수나 `/home/ubuntu/trading-system/config/secrets.env`에서 읽습니다.
 - 모델은 `OPENAI_MODEL`을 우선 사용하고, 없으면 `gpt-4o-mini`를 기본값으로 사용합니다.

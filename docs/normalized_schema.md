@@ -5,7 +5,7 @@
 ## Document-level fields
 
 - `source_file`: 원본 입력 파일 경로
-- `document_type`: `paper` | `patent` | `certificate_of_analysis`
+- `document_type`: `paper` | `patent` | `certificate_of_analysis` | `msds`
 - `document_title`: 논문/특허/성적서 제목
 - `document_id`: 문서 식별자
   - 예: `PMC5109614`, `US9956629B2`, `coa:ti6al4v_coa_sample`
