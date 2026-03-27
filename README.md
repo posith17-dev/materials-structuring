@@ -169,6 +169,8 @@ python3 /home/ubuntu/materials-structuring/scripts/msds_batch_validate.py \
   --limit 10
 ```
 
+- 배치 대상 후보는 [msds_public_candidate_checklist.md](/home/ubuntu/materials-structuring/docs/msds_public_candidate_checklist.md)에 정리해 두었습니다.
+
 메모:
 - `OPENAI_API_KEY`는 환경변수나 `/home/ubuntu/trading-system/config/secrets.env`에서 읽습니다.
 - 모델은 `OPENAI_MODEL`을 우선 사용하고, 없으면 `gpt-4o-mini`를 기본값으로 사용합니다.
@@ -179,6 +181,7 @@ python3 /home/ubuntu/materials-structuring/scripts/msds_batch_validate.py \
 - 시험성적서/COA/사양서 구조화
 - 연구실 시뮬레이션 결과 정규화
 - 공개 MSDS 배치 검증
+- 공개 MSDS 후보 10건 체크리스트
 
 ## 특허 실험 메모
 
