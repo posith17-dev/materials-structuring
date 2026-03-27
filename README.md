@@ -160,6 +160,15 @@ python3 /home/ubuntu/materials-structuring/scripts/run_openai_material_extractio
   --merged-output /home/ubuntu/materials-structuring/outputs/msds_kosha_000939_openai_merged.json
 ```
 
+MSDS 배치 검증:
+
+```bash
+python3 /home/ubuntu/materials-structuring/scripts/msds_batch_validate.py \
+  --input-dir /home/ubuntu/materials-structuring/samples/msds_batch \
+  --output-dir /home/ubuntu/materials-structuring/outputs/msds_batch_validation \
+  --limit 10
+```
+
 메모:
 - `OPENAI_API_KEY`는 환경변수나 `/home/ubuntu/trading-system/config/secrets.env`에서 읽습니다.
 - 모델은 `OPENAI_MODEL`을 우선 사용하고, 없으면 `gpt-4o-mini`를 기본값으로 사용합니다.
@@ -169,6 +178,7 @@ python3 /home/ubuntu/materials-structuring/scripts/run_openai_material_extractio
 - 특허에서 조성 추출
 - 시험성적서/COA/사양서 구조화
 - 연구실 시뮬레이션 결과 정규화
+- 공개 MSDS 배치 검증
 
 ## 특허 실험 메모
 
