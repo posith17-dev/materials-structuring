@@ -2,10 +2,11 @@
 
 이 문서는 RoboQC의 MSDS 구조화 검증용 공개 입력 10건을 모아둔 체크리스트다.
 기준은 `reader -> inspect -> report` 파이프라인을 그대로 재사용하는 것이다.
+파일명 규칙은 [MSDS File Naming Rule](/home/ubuntu/materials-structuring/docs/msds_file_naming.md) 을 따른다.
 
 ## Confirmed baseline
 
-1. [수소처리된 경질 정제유 (석유)](/home/ubuntu/materials-structuring/samples/msds_kosha_000939_sample.html)
+1. [도데칸니트릴 (CAS No. 2437-25-4)](/home/ubuntu/materials-structuring/samples/msds_batch/msds_dodecanenitrile_2437-25-4.html)
    - source: 안전보건공단 MSDS 상세 페이지
    - status: rule validation completed
 
@@ -58,6 +59,7 @@
 1. Confirmed baseline 1건으로 파이프라인 고정
 2. row 361~370 순서대로 10건 수집
 3. 각 문서를 `samples/msds_batch/`에 넣고 `msds_batch_validate.py`로 실행
+   - HTML / PDF / TXT 모두 가능
 4. `records` 수와 핵심 필드 추출 여부를 비교
 
 ## 검증 포인트

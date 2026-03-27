@@ -9,7 +9,7 @@ from material_property_experiment import extract_text
 from msds_rule_validate import parse_msds_records
 
 
-SUPPORTED_SUFFIXES = {".html", ".htm", ".pdf"}
+SUPPORTED_SUFFIXES = {".html", ".htm", ".pdf", ".txt"}
 
 
 def _iter_inputs(input_dir: Path) -> list[Path]:
@@ -51,7 +51,8 @@ def main() -> int:
         }
 
         stem = path.stem
-        out_path = output_dir / f"{stem}_rule_output.json"
+        suffix_tag = path.suffix.lower().lstrip(".") or "file"
+        out_path = output_dir / f"{stem}_{suffix_tag}_rule_output.json"
         out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
         summary.append(

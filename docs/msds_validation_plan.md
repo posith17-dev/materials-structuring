@@ -2,6 +2,8 @@
 
 이 문서는 RoboQC의 기존 `reader -> inspect -> report` 구조를 MSDS 공개 문서에 그대로 적용하는 검증 계획이다.
 
+파일명 규칙은 [MSDS File Naming Rule](/home/ubuntu/materials-structuring/docs/msds_file_naming.md) 을 따른다.
+
 ## 목표
 
 - 공개 MSDS 문서 10건을 구조화한다.
@@ -14,7 +16,8 @@
 
 1. 안전보건공단 공개 MSDS 상세 페이지
 2. 공개 MSDS HTML 샘플
-3. 공개 PDF 또는 HTML로 변환한 MSDS 샘플
+3. 공개 MSDS TXT 샘플
+4. 공개 PDF 또는 HTML로 변환한 MSDS 샘플
 
 ## 검증 항목
 

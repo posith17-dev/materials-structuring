@@ -23,6 +23,16 @@ def _find_line_value(lines: list[str], label: str) -> str:
     return ""
 
 
+def _line_or_next_value(line: str, lines: list[str], idx: int) -> str:
+    if ":" in line:
+        return _norm(line.split(":", 1)[-1])
+    for nxt in lines[idx + 1 :]:
+        nxt = nxt.strip()
+        if nxt:
+            return _norm(nxt)
+    return ""
+
+
 def _find_section(lines: list[str], start_label: str, end_label: str | None = None) -> list[str]:
     start = None
     end = len(lines)
@@ -74,25 +84,25 @@ def parse_msds_records(text: str) -> list[dict[str, str]]:
 
     comp_material = ""
     comp_ratio = ""
-    for line in composition_section:
+    for idx, line in enumerate(composition_section):
         if line.startswith("물질명"):
-            comp_material = _norm(line.split(":", 1)[-1]) if ":" in line else _norm(line.replace("물질명", "", 1))
+            comp_material = _line_or_next_value(line, composition_section, idx)
         if line.startswith("함유량"):
-            comp_ratio = _norm(line.split(":", 1)[-1]) if ":" in line else _norm(line.replace("함유량", "", 1))
+            comp_ratio = _line_or_next_value(line, composition_section, idx)
     if comp_material:
         records.append(_record(material_name, comp_material, "composition", comp_material, source_excerpt=comp_material))
     if comp_ratio:
         records.append(_record(material_name, comp_material or material_name, "composition_ratio", comp_ratio, "%", source_excerpt=f"함유량 {comp_ratio}"))
 
-    for line in exposure_section:
+    for idx, line in enumerate(exposure_section):
         if line.startswith("국내규정"):
-            value = _norm(line.split(":", 1)[-1]) if ":" in line else ""
+            value = _line_or_next_value(line, exposure_section, idx)
             records.append(_record(material_name, "", "exposure_limit_domestic", value, source_excerpt=line))
         elif line.startswith("ACGIH 규정"):
-            value = _norm(line.split(":", 1)[-1]) if ":" in line else ""
+            value = _line_or_next_value(line, exposure_section, idx)
             records.append(_record(material_name, "", "exposure_limit_acgih", value, source_excerpt=line))
         elif line.startswith("기타 노출기준"):
-            value = _norm(line.split(":", 1)[-1]) if ":" in line else ""
+            value = _line_or_next_value(line, exposure_section, idx)
             records.append(_record(material_name, "", "exposure_limit_other", value, source_excerpt=line))
 
     physical_map = {
@@ -105,10 +115,10 @@ def parse_msds_records(text: str) -> list[dict[str, str]]:
         "용해도": ("solubility", "g/100mL"),
         "비중": ("specific_gravity", ""),
     }
-    for line in physical_section:
+    for idx, line in enumerate(physical_section):
         for label, (prop_name, unit) in physical_map.items():
             if line.startswith(label):
-                value = _norm(line.split(":", 1)[-1]) if ":" in line else _norm(line.replace(label, "", 1))
+                value = _line_or_next_value(line, physical_section, idx)
                 records.append(
                     _record(
                         material_name,

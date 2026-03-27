@@ -133,13 +133,19 @@ def extract_text_from_html(html_path: Path) -> str:
     return parser.get_text()
 
 
+def extract_text_from_txt(txt_path: Path) -> str:
+    return txt_path.read_text(encoding="utf-8", errors="ignore")
+
+
 def extract_text(input_path: Path) -> str:
     suffix = input_path.suffix.lower()
     if suffix == ".pdf":
         return extract_text_from_pdf(input_path)
     if suffix in {".html", ".htm"}:
         return extract_text_from_html(input_path)
-    raise ValueError("input_must_be_pdf_or_html")
+    if suffix == ".txt":
+        return extract_text_from_txt(input_path)
+    raise ValueError("input_must_be_pdf_html_or_txt")
 
 
 def clean_common_noise(extracted_text: str) -> str:

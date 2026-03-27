@@ -170,6 +170,7 @@ python3 /home/ubuntu/materials-structuring/scripts/msds_batch_validate.py \
 ```
 
 - 배치 대상 후보는 [msds_public_candidate_checklist.md](/home/ubuntu/materials-structuring/docs/msds_public_candidate_checklist.md)에 정리해 두었습니다.
+- 파일명 규칙은 [msds_file_naming.md](/home/ubuntu/materials-structuring/docs/msds_file_naming.md)을 따릅니다.
 
 메모:
 - `OPENAI_API_KEY`는 환경변수나 `/home/ubuntu/trading-system/config/secrets.env`에서 읽습니다.
