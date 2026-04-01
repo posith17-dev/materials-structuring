@@ -171,6 +171,11 @@ python3 /home/ubuntu/materials-structuring/scripts/msds_batch_validate.py \
 
 - 배치 대상 후보는 [msds_public_candidate_checklist.md](/home/ubuntu/materials-structuring/docs/msds_public_candidate_checklist.md)에 정리해 두었습니다.
 - 파일명 규칙은 [msds_file_naming.md](/home/ubuntu/materials-structuring/docs/msds_file_naming.md)을 따릅니다.
+- 폴더 운영 규칙은 [msds_folder_organization.md](/home/ubuntu/materials-structuring/docs/msds_folder_organization.md)를 따릅니다.
+- 신뢰성 점검은 [msds_reliability_checklist.md](/home/ubuntu/materials-structuring/docs/msds_reliability_checklist.md)를 따릅니다.
+- 최종 요약은 [msds_validation_summary.md](/home/ubuntu/materials-structuring/docs/msds_validation_summary.md)를 봅니다.
+
+MSDS만 빠르게 보려면 위 5개 문서만 보면 됩니다.
 
 메모:
 - `OPENAI_API_KEY`는 환경변수나 `/home/ubuntu/trading-system/config/secrets.env`에서 읽습니다.
@@ -183,6 +188,21 @@ python3 /home/ubuntu/materials-structuring/scripts/msds_batch_validate.py \
 - 연구실 시뮬레이션 결과 정규화
 - 공개 MSDS 배치 검증
 - 공개 MSDS 후보 10건 체크리스트
+- 제조 문서 에이전트 MVP
+  - [제조 문서 에이전트 MVP](/home/ubuntu/materials-structuring/docs/manufacturing_document_agent_mvp.md)
+- 시험성적서 규칙 기반 MVP
+  - [시험성적서 규칙 기반 구조화·이상탐지 MVP 설계 문서](/home/ubuntu/materials-structuring/docs/test_certificate_rule_based_mvp.md)
+  - [시험성적서 MVP 코드 구조](/home/ubuntu/materials-structuring/docs/test_certificate_mvp_code_structure.md)
+- 권장 디렉토리 구조
+  - [권장 디렉토리 구조](/home/ubuntu/materials-structuring/docs/recommended_project_structure.md)
+- 하네스 task taxonomy
+  - [하네스 Task Taxonomy](/home/ubuntu/materials-structuring/docs/harness_task_taxonomy.md)
+- 하네스 provider 구조
+  - [하네스 Provider 구조](/home/ubuntu/materials-structuring/docs/harness_provider_structure.md)
+- 인프라 vs 모델 옵션
+  - [인프라 vs 모델 옵션](/home/ubuntu/materials-structuring/docs/infrastructure_vs_model_options.md)
+- 대화 정리
+  - [대화 정리](/home/ubuntu/materials-structuring/docs/conversation_summary_20260327.md)
 
 ## 특허 실험 메모
 

@@ -1,12 +1,6 @@
-#!/usr/bin/env python3
 from __future__ import annotations
 
-import argparse
-import json
 import re
-from pathlib import Path
-
-from material_property_experiment import extract_text
 
 
 def _norm(text: str) -> str:
@@ -63,7 +57,16 @@ def _find_section(lines: list[str], start_label: str, end_label: str | None = No
     return [line.strip() for line in lines[start:end] if line.strip()]
 
 
-def _record(material_name: str, composition: str, property_name: str, property_value: str, property_unit: str = "", test_condition: str = "", source_page: str = "본문", source_excerpt: str = "") -> dict[str, str]:
+def _record(
+    material_name: str,
+    composition: str,
+    property_name: str,
+    property_value: str,
+    property_unit: str = "",
+    test_condition: str = "",
+    source_page: str = "본문",
+    source_excerpt: str = "",
+) -> dict[str, str]:
     return {
         "material_name": material_name,
         "composition": composition,
@@ -147,7 +150,6 @@ def parse_msds_records(text: str) -> list[dict[str, str]]:
                 )
                 break
 
-    # Keep only non-empty values and avoid duplicates by (property_name, property_value)
     deduped: list[dict[str, str]] = []
     seen: set[tuple[str, str, str]] = set()
     for rec in records:
@@ -159,66 +161,3 @@ def parse_msds_records(text: str) -> list[dict[str, str]]:
         seen.add(key)
         deduped.append(rec)
     return deduped
-
-
-def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--input", required=True, help="Path to MSDS HTML or PDF")
-    parser.add_argument("--output", required=True, help="Path to write extracted JSON")
-    parser.add_argument("--report", required=True, help="Path to write markdown report")
-    args = parser.parse_args()
-
-    input_path = Path(args.input)
-    output_path = Path(args.output)
-    report_path = Path(args.report)
-
-    text = extract_text(input_path)
-    records = parse_msds_records(text)
-
-    payload = {
-        "source_file": str(input_path),
-        "document_type": "msds",
-        "status": "rule_extraction_completed",
-        "records": records,
-        "record_count": len(records),
-    }
-
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    lines = []
-    lines.append("# MSDS Rule Validation Report")
-    lines.append("")
-    lines.append(f"- **Source**: {input_path}")
-    lines.append(f"- **Records extracted**: {len(records)}")
-    lines.append("")
-    lines.append("## Extracted Records")
-    lines.append("")
-    lines.append("| material_name | composition | property_name | value | unit | condition |")
-    lines.append("|---|---|---|---|---|---|")
-    for rec in records:
-        lines.append(
-            "| "
-            + " | ".join(
-                [
-                    rec["material_name"],
-                    rec["composition"],
-                    rec["property_name"],
-                    rec["property_value"],
-                    rec["property_unit"],
-                    rec["test_condition"],
-                ]
-            )
-            + " |"
-        )
-    report_path.parent.mkdir(parents=True, exist_ok=True)
-    report_path.write_text("\n".join(lines), encoding="utf-8")
-
-    print(f"records={len(records)}")
-    print(f"output={output_path}")
-    print(f"report={report_path}")
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())

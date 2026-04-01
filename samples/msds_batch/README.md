@@ -3,6 +3,7 @@
 이 폴더는 공개 MSDS 검증용 입력 샘플을 모아두는 곳입니다.
 
 권장 규칙은 [MSDS File Naming Rule](/home/ubuntu/materials-structuring/docs/msds_file_naming.md) 을 따른다.
+폴더 운영 기준은 [MSDS Folder Organization Rule](/home/ubuntu/materials-structuring/docs/msds_folder_organization.md) 을 따른다.
 
 ## 권장 파일명
 
@@ -26,5 +27,6 @@ python3 /home/ubuntu/materials-structuring/scripts/msds_batch_validate.py \
 
 ## 메모
 
-- 이미 확인된 baseline 샘플은 `msds_dodecanenitrile_2437-25-4.html` / `msds_dodecanenitrile_2437-25-4.txt`다.
 - 이 폴더는 공개 문서를 넣어 두고 재현 가능한 배치 검증을 하는 용도다.
+- 같은 CAS의 HTML/TXT/PDF는 여기 같이 둬도 된다.
+- 다른 물질도 같은 배치에 함께 넣을 수 있다.
